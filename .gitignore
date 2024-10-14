@@ -24,3 +24,6 @@ vite.config.ts.timestamp-*
 **/__pycache__/
 .*_cache/
 .venv/
+
+# Direnv
+.direnv
