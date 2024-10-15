@@ -25,6 +25,7 @@
           inputs',
           pkgs,
           system,
+          lib,
           ...
         }:
         {
@@ -35,11 +36,31 @@
               };
             in
             pkgs.mkShell {
+              LD_LIBRARY_PATH = lib.makeLibraryPath (
+                with pkgs;
+                [
+                  zlib
+                  zstd
+                  stdenv.cc.cc.lib
+                  curl
+                  openssl
+                  attr
+                  libssh
+                  bzip2
+                  libxml2
+                  acl
+                  libsodium
+                  util-linux
+                  xz
+                  systemd
+                ]
+              );
               packages = [
                 pkgs.nixfmt-rfc-style
                 pkgs.python312
                 pkgs.rye
                 pkgs.bun
+                pkgs.git
               ];
             };
         };
