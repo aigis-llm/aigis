@@ -34,9 +34,7 @@
               pkgs = import nixpkgs {
                 inherit system;
               };
-            in
-            pkgs.mkShell {
-              LD_LIBRARY_PATH = lib.makeLibraryPath (
+              pythonldpath = lib.makeLibraryPath (
                 with pkgs;
                 [
                   zlib
@@ -55,12 +53,24 @@
                   systemd
                 ]
               );
+              wrapPrefix = if (!pkgs.stdenv.isDarwin) then "LD_LIBRARY_PATH" else "DYLD_LIBRARY_PATH";
+              patchedPython = (
+                pkgs.symlinkJoin {
+                  name = "python-patched";
+                  paths = [ pkgs.python313 ];
+                  buildInputs = [ pkgs.makeWrapper ];
+                  postBuild = ''
+                    wrapProgram "$out/bin/python3.13" --prefix ${wrapPrefix} : "${pythonldpath}"
+                  '';
+                }
+              );
+            in
+            pkgs.mkShell {
               packages = [
                 pkgs.nixfmt-rfc-style
-                pkgs.python312
+                patchedPython
                 pkgs.rye
                 pkgs.bun
-                pkgs.git
               ];
             };
         };
