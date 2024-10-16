@@ -1,3 +1,5 @@
+alias i := install
+
 install:
 	rye sync
 	bun install
@@ -16,12 +18,15 @@ preview:
 
 test:
 	bun test #TODO: proper test setup
+	rye test
 
 lint:
 	bunx --bun prettier --check .
 	bunx --bun eslint . 
 	rye lint
 	rye run mypy src/aigis/ server.py
+
+alias fmt := format
 
 format:
 	bunx --bun prettier --write .
