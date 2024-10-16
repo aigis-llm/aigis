@@ -17,7 +17,7 @@ preview:
 	bunx --bun concurrently --kill-others "rye run sanic server --port 8070 --host 0.0.0.0" "bunx --bun vite preview --port 8071 --host 0.0.0.0"
 
 test:
-	bun test #TODO: proper test setup
+	bun test
 	rye test
 
 lint:
