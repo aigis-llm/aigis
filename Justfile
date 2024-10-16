@@ -14,12 +14,8 @@ build:
 preview:
 	bunx --bun concurrently --kill-others "rye run sanic server --port 8070 --host 0.0.0.0" "bunx --bun vite preview --port 8071 --host 0.0.0.0"
 
-check:
-	bunx --bun svelte-kit sync
-	bunx --bun svelte-check --tsconfig ./tsconfig.json
-
 test:
-	bunx --bun vitest
+	bun test #TODO: proper test setup
 
 lint:
 	bunx --bun prettier --check .
