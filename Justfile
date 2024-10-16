@@ -18,6 +18,7 @@ preview:
 
 test:
 	bun test #TODO: proper test setup
+	rye test
 
 lint:
 	bunx --bun prettier --check .

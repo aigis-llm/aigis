@@ -18,10 +18,19 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "pytest>=8.3.3",
+]
 
 [tool.ruff]
 format.indent-style = "tab"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "src",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
