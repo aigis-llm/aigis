@@ -3,13 +3,6 @@
 	"version": "0.0.1",
 	"private": true,
 	"license": "ISC",
-	"scripts": {
-		"build": "vite build",
-		"preview": "concurrently --kill-others \"rye run sanic server --port 8070 --host 0.0.0.0\" \"vite preview --port 8071 --host 0.0.0.0\"",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"test": "vitest",
-		"lint": "prettier --check . && eslint . && rye lint && rye run mypy src/aigis/ server.py"
-	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.2.5",
 		"@sveltejs/kit": "^2.7.1",

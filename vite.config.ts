@@ -8,12 +8,7 @@ export default defineConfig({
 	},
 	server: {
 		watch: {
-			ignored: [
-				"**/__pycache__/**",
-				"**/.*_cache/**",
-				"**/.venv/**",
-				"**/.direnv/**",
-			],
+			ignored: ["**/__pycache__/**", "**/.*_cache/**", "**/.venv/**", "**/.direnv/**"],
 		},
 	},
 });
