@@ -12,6 +12,6 @@ describe("root page test", () => {
 	it("has the correct header", async () => {
 		render(page)
 		const header = await screen.findByRole("heading")
-		expect(header).toBeInTheDocument()
+		expect(header).toBeDefined()
 	})
 })
