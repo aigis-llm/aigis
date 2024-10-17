@@ -71,6 +71,7 @@
                 patchedPython
                 pkgs.rye
                 pkgs.bun
+                pkgs.just
               ];
             };
         };
