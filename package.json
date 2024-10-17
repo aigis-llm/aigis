@@ -4,9 +4,13 @@
 	"private": true,
 	"license": "ISC",
 	"devDependencies": {
+		"@happy-dom/global-registrator": "^15.7.4",
 		"@sveltejs/adapter-auto": "^3.2.5",
 		"@sveltejs/kit": "^2.7.1",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
+		"@testing-library/dom": "^10.4.0",
+		"@testing-library/jest-dom": "^6.6.1",
+		"@testing-library/svelte": "^5.2.3",
 		"@types/bun": "^1.1.11",
 		"@types/eslint": "^9.6.1",
 		"concurrently": "^9.0.1",
