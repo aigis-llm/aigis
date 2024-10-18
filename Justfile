@@ -1,3 +1,5 @@
+alias i := install
+
 install:
 	rye sync
 	bun install
@@ -15,13 +17,16 @@ preview:
 	bunx --bun concurrently --kill-others "rye run sanic server --port 8070 --host 0.0.0.0" "bunx --bun vite preview --port 8071 --host 0.0.0.0"
 
 test:
-	bun test #TODO: proper test setup
+	bun test
+	rye test
 
 lint:
 	bunx --bun prettier --check .
 	bunx --bun eslint . 
 	rye lint
 	rye run mypy src/aigis/ server.py
+
+alias fmt := format
 
 format:
 	bunx --bun prettier --write .
