@@ -6,4 +6,9 @@ export default defineConfig({
 	test: {
 		include: ["src/**/*.{test,spec}.{js,ts}"],
 	},
+	server: {
+		watch: {
+			ignored: ["**/__pycache__/**", "**/.*_cache/**", "**/.venv/**", "**/.direnv/**"],
+		},
+	},
 });
