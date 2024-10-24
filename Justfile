@@ -3,6 +3,7 @@ alias i := install
 install:
 	rye sync
 	bun install
+	bash patch.sh
 
 register-toolchain:
 	rye toolchain register --name=patched-nix-cpython `which python3.13`

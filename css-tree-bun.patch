@@ -1,0 +1,52 @@
+diff -ruN node_modules/css-tree/cjs/data-patch.cjs vendor-node/css-tree/cjs/data-patch.cjs
+--- node_modules/css-tree/cjs/data-patch.cjs	2024-10-23 16:19:04.901988636 +0000
++++ vendor-node/css-tree/cjs/data-patch.cjs	2024-10-24 17:06:49.614392891 +0000
+@@ -1,6 +1,6 @@
+ 'use strict';
+ 
+-const patch = require('../data/patch.json');
++const patch = require('css-tree/data/patch.json');
+ 
+ const patch$1 = patch;
+ 
+diff -ruN node_modules/css-tree/cjs/version.cjs vendor-node/css-tree/cjs/version.cjs
+--- node_modules/css-tree/cjs/version.cjs	2024-10-23 16:19:04.908988615 +0000
++++ vendor-node/css-tree/cjs/version.cjs	2024-10-24 17:06:43.443404284 +0000
+@@ -1,5 +1,5 @@
+ 'use strict';
+ 
+-const { version } = require('../package.json');
++const { version } = require('css-tree/package.json');
+ 
+ exports.version = version;
+diff -ruN node_modules/css-tree/lib/data-patch.js vendor-node/css-tree/lib/data-patch.js
+--- node_modules/css-tree/lib/data-patch.js	2024-10-23 16:19:04.911988606 +0000
++++ vendor-node/css-tree/lib/data-patch.js	2024-10-24 17:06:36.753416633 +0000
+@@ -1,6 +1,6 @@
+ import { createRequire } from 'module';
+ 
+ const require = createRequire(import.meta.url);
+-const patch = require('../data/patch.json');
++const patch = require('css-tree/data/patch.json');
+ 
+ export default patch;
+diff -ruN node_modules/css-tree/lib/version.js vendor-node/css-tree/lib/version.js
+--- node_modules/css-tree/lib/version.js	2024-10-23 16:19:04.916988591 +0000
++++ vendor-node/css-tree/lib/version.js	2024-10-24 17:05:59.439485517 +0000
+@@ -2,4 +2,4 @@
+ 
+ const require = createRequire(import.meta.url);
+ 
+-export const { version } = require('../package.json');
++export const { version } = require('css-tree/package.json');
+diff -ruN node_modules/css-tree/package.json vendor-node/css-tree/package.json
+--- node_modules/css-tree/package.json	2024-10-23 16:19:04.917988588 +0000
++++ vendor-node/css-tree/package.json	2024-10-24 17:06:13.889458841 +0000
+@@ -27,6 +27,7 @@
+     },
+     "./dist/*": "./dist/*.js",
+     "./package.json": "./package.json",
++    "./data/*": "./data/*",
+     "./tokenizer": {
+       "import": "./lib/tokenizer/index.js",
+       "require": "./cjs/tokenizer/index.cjs"
