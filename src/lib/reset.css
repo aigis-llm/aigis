@@ -59,3 +59,9 @@ h6 {
 #root {
 	isolation: isolate;
 }
+
+/* custom rules */
+/* font features */
+.font-sans {
+	font-feature-settings: "calt" 1, "tnum" 1, "ss01" 1, "ss02" 1;
+}
