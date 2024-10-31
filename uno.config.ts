@@ -1,13 +1,18 @@
-import { defineConfig, presetUno, presetIcons, presetWebFonts, presetTypography, transformerDirectives } from "unocss"
+import {
+	defineConfig,
+	presetUno,
+	presetIcons,
+	presetWebFonts,
+	presetTypography,
+	transformerDirectives,
+} from "unocss"
 import extractorSvelte from "@unocss/extractor-svelte"
 import { presetCatppuccin } from "@tuhana/unocss-catppuccin"
 import { flavorEntries } from "@catppuccin/palette"
 
 export default defineConfig({
 	extractors: [extractorSvelte()],
-	transformers: [
-		transformerDirectives()
-	],
+	transformers: [transformerDirectives()],
 	presets: [
 		presetUno(),
 		presetIcons(),
@@ -33,6 +38,6 @@ export default defineConfig({
 				}
 			}
 			return output
-		})()
-	]
+		})(),
+	],
 })
