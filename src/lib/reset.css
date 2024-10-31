@@ -72,3 +72,20 @@ h6 {
 .font-mono {
 	font-feature-settings: "calt" 1;
 }
+
+/* themes */
+.theme-latte {
+	--at-apply: bg-ctp-latte-base color-ctp-latte-text;
+}
+
+.theme-frappe {
+	--at-apply: bg-ctp-frappe-base color-ctp-frappe-text;
+}
+
+.theme-macchiato {
+	--at-apply: bg-ctp-macchiato-base color-ctp-macchiato-text;
+}
+
+.theme-mocha {
+	--at-apply: bg-ctp-mocha-base color-ctp-mocha-text;
+}
