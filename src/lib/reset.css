@@ -3,6 +3,9 @@
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
 
+@import url(https://rsms.me/inter/inter.css);
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+
 *,
 *::before,
 *::after {
@@ -64,4 +67,8 @@ h6 {
 /* font features */
 .font-sans {
 	font-feature-settings: "calt" 1, "tnum" 1, "ss01" 1, "ss02" 1;
+}
+
+.font-mono {
+	font-feature-settings: "calt" 1;
 }

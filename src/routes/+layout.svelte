@@ -5,4 +5,4 @@
 	let { children } = $props()
 </script>
 
-<div id="root" style="display: contents" class="font-sans">{@render children()}</div>
+{@render children()}

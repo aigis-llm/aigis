@@ -10,7 +10,7 @@ export default defineConfig({
 		//@ts-expect-error idk this does not like me
 		presetCatppuccin(),
 		presetWebFonts({
-			provider: "bunny",
+			provider: "none",
 			fonts: {
 				sans: "Inter",
 				mono: "Fira Code",
@@ -18,4 +18,7 @@ export default defineConfig({
 		}),
 		presetTypography(),
 	],
+	safelist: [
+		"font-sans"
+	]
 })
