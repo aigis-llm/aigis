@@ -1,0 +1,95 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+@import url(https://rsms.me/inter/inter.css);
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+p {
+	text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+#root {
+	isolation: isolate;
+}
+
+/* custom rules */
+/* font features */
+.font-sans {
+	font-feature-settings:
+		"calt" 1,
+		"tnum" 1,
+		"ss01" 1,
+		"ss02" 1;
+}
+
+.font-mono {
+	font-feature-settings: "calt" 1;
+}
+
+/* themes */
+.theme-latte {
+	--at-apply: bg-ctp-latte-base color-ctp-latte-text;
+}
+
+.theme-frappe {
+	--at-apply: bg-ctp-frappe-base color-ctp-frappe-text;
+}
+
+.theme-macchiato {
+	--at-apply: bg-ctp-macchiato-base color-ctp-macchiato-text;
+}
+
+.theme-mocha {
+	--at-apply: bg-ctp-mocha-base color-ctp-mocha-text;
+}
