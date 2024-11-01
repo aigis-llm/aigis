@@ -10,7 +10,7 @@
 	<option value="macchiato">Machhiato</option>
 	<option value="mocha">Mocha</option>
 </select>
-<p>Illegal</p>
+<p>Illegal Test</p>
 <p>3.14</p>
 <p>
 	0.45, 0.91. +0.08<br />
