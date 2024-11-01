@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+mkdir -p vendor-node
 rm -rf node_modules/css-tree/ vendor-node/css-tree
 bun install
 cp -r node_modules/css-tree/ vendor-node/
