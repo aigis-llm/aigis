@@ -12,4 +12,5 @@ export default defineConfig({
 			ignored: ["**/__pycache__/**", "**/.*_cache/**", "**/.venv/**", "**/.direnv/**"],
 		},
 	},
+	envPrefix: "AIGIS_",
 })
