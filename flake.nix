@@ -72,6 +72,7 @@
                 pkgs.rye
                 pkgs.bun
                 pkgs.just
+                pkgs.supabase-cli
               ];
             };
         };
