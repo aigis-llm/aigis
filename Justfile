@@ -9,13 +9,13 @@ register-toolchain:
 	rye toolchain register --name=patched-nix-cpython `which python3.13`
 
 dev:
-	bunx --bun concurrently --kill-others "rye run sanic server --dev --port 8070 --host 0.0.0.0" "bunx --bun vite dev --port 8071 --host 0.0.0.0"
+	bunx --bun concurrently --kill-others "rye run fastapi dev --port 8070 --host 0.0.0.0 src/aigis/__init__.py" "bunx --bun vite dev --port 8071 --host 0.0.0.0"
 
 build:
 	bunx --bun vite build
 
 preview:
-	bunx --bun concurrently --kill-others "rye run sanic server --port 8070 --host 0.0.0.0" "bunx --bun vite preview --port 8071 --host 0.0.0.0"
+	bunx --bun concurrently --kill-others "rye run fastapi run --port 8070 --host 0.0.0.0 src/aigis/__init__.py" "bunx --bun vite preview --port 8071 --host 0.0.0.0"
 
 test:
 	bun test #TODO: proper test setup

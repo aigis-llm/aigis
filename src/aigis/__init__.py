@@ -1,9 +1,10 @@
-from sanic import Sanic
-from sanic.response import text
-
-app = Sanic("Aigis")
+from fastapi import FastAPI
+from fastapi.responses import PlainTextResponse
 
 
-@app.get("/")
-async def hello_world(request):
-	return text("Hello, world.")
+app = FastAPI()
+
+
+@app.get("/", response_class=PlainTextResponse)
+async def hello_world():
+	return "Hello, world."

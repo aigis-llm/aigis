@@ -6,8 +6,8 @@ authors = [
     { name = "bitbloxhub", email = "45184892+bitbloxhub@users.noreply.github.com" }
 ]
 dependencies = [
-    "sanic>=24.6.0",
     "mypy>=1.11.0",
+    "fastapi[standard]>=0.115.4",
 ]
 readme = "README.md"
 requires-python = ">= 3.12"
@@ -18,7 +18,9 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "jedi @ git+https://github.com/davidhalter/jedi@30adf43a8929ade8a9e0abee6921a5043c962215",
+]
 
 [tool.ruff]
 format.indent-style = "tab"
