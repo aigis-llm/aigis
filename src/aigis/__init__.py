@@ -1,7 +1,6 @@
 import os
-from typing import Any, AsyncGenerator, Annotated, Coroutine
+from typing import AsyncGenerator, Annotated
 from fastapi import FastAPI, Request, Depends
-from fastapi.responses import PlainTextResponse
 from supabase import create_async_client, AsyncClient, AsyncClientOptions
 
 
@@ -29,6 +28,7 @@ async def supabase_client(request: Request) -> AsyncGenerator[AsyncClient]:
 		yield supa
 	finally:
 		pass
+
 
 SupabaseDep = Annotated[AsyncClient, Depends(supabase_client)]
 
