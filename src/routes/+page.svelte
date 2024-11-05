@@ -1,5 +1,9 @@
 <script lang="ts">
+	import type { LayoutData } from "./$types"
 	import { preferences } from "../stores"
+	import type { Snippet } from "svelte"
+
+	let { data, children }: { data: LayoutData; children: Snippet } = $props()
 </script>
 
 <h1>Welcome to SvelteKit</h1>
