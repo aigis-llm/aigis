@@ -28,6 +28,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@supabase/ssr": "^0.5.1",
+		"@supabase/supabase-js": "^2.46.1",
 		"svelte-persisted-store": "^0.12.0"
 	}
 }

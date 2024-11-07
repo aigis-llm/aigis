@@ -1,5 +1,13 @@
 <script lang="ts">
+	import type { LayoutData } from "./$types"
 	import { preferences } from "../stores"
+	import type { Snippet } from "svelte"
+
+	let { data, children }: { data: LayoutData; children: Snippet } = $props()
+
+	const loadBackendData = async () => {
+		return await (await data.backend_fetch(import.meta.env.AIGIS_BACKEND_URL)).text()
+	}
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -22,3 +30,7 @@
 	1.00; 9.44, −0.13<br />
 	0:00. 1.13; ~7.12</code
 >
+<p>{data.session?.access_token}</p>
+{#await loadBackendData() then backend_data}
+	<p>{backend_data}</p>
+{/await}

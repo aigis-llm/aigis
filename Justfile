@@ -8,6 +8,11 @@ install:
 register-toolchain:
 	rye toolchain register --name=patched-nix-cpython `which python3.13`
 
+generate:
+	supabase start
+	supabase gen types --lang=typescript --local > database.types.ts
+	@echo "You can run \`supabase stop\` to stop the DB if you wish."
+
 dev:
 	bunx --bun concurrently --kill-others "rye run fastapi dev --port 8070 --host 0.0.0.0 src/aigis/__init__.py" "bunx --bun vite dev --port 8071 --host 0.0.0.0"
 
