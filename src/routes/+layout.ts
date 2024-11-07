@@ -1,3 +1,4 @@
+import create_backend_fetch from "$lib/backend_fetch.js"
 import type { Database } from "../../database.types.ts"
 import type { LayoutLoad } from "./$types"
 import { createBrowserClient, createServerClient, isBrowser } from "@supabase/ssr"
@@ -37,7 +38,13 @@ export const load: LayoutLoad = async ({ fetch, data, depends }) => {
 	 */
 	const {
 		data: { session },
-	} = await supabase.auth.getSession()
+	  } = await supabase.auth.getSession()
+	
+	  const {
+		data: { user },
+	  } = await supabase.auth.getUser()
 
-	return { supabase, session }
+	const backend_fetch = create_backend_fetch(supabase)
+
+	return { supabase, session, user, backend_fetch }
 }
