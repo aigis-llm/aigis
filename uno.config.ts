@@ -29,6 +29,7 @@ export default defineConfig({
 	],
 	safelist: [
 		"font-sans",
+		"color-ctp-mocha-overlay0",
 		...(() => {
 			const output: Array<string> = []
 			for (const flavor of flavorEntries) {

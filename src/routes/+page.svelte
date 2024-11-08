@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { LayoutData } from "./$types"
-	import { preferences } from "../stores"
+	import { preferences } from "$lib/stores"
 	import type { Snippet } from "svelte"
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props()

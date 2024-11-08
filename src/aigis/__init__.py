@@ -12,18 +12,15 @@ supabase_key: str = os.environ.get(
 )
 app = FastAPI()
 
-origins = [
-    os.environ.get("AIGIS_FRONTEND_URL", "http://localhost:8071")
-]
+origins = [os.environ.get("AIGIS_FRONTEND_URL", "http://localhost:8071")]
 
 app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+	CORSMiddleware,
+	allow_origins=origins,
+	allow_credentials=True,
+	allow_methods=["*"],
+	allow_headers=["*"],
 )
-
 
 
 async def supabase_client(request: Request) -> AsyncGenerator[AsyncClient]:
