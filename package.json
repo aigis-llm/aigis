@@ -12,7 +12,6 @@
 		"@types/eslint": "^9.6.1",
 		"@unocss/extractor-svelte": "^0.64.0",
 		"concurrently": "^9.1.0",
-		"css-tree": "^3.0.1",
 		"eslint": "^9.14.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.46.0",
