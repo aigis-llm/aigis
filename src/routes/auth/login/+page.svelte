@@ -10,7 +10,7 @@
 				name="email"
 				type="email"
 				autocomplete="username"
-				class="flex-initial border rounded-lg color-ctp-{$preferences.theme}-text bg-ctp-mocha-surface0"
+				class="flex-initial border-2 border-solid border-[--ctp-surface1] rounded-lg color-[--ctp-{$preferences.theme}-text] bg-[--ctp-{$preferences.theme}-surface0]"
 			/>
 		</label>
 		<label class="flex flex-row w-full py-2">
@@ -19,11 +19,12 @@
 				name="password"
 				type="password"
 				autocomplete="current-password"
-				class="flex-initial border rounded-lg color-ctp-{$preferences.theme}-text bg-ctp-{$preferences.theme}-surface0"
+				class="flex-initial border-0 rounded-lg color-ctp-{$preferences.theme}-text bg-ctp-{$preferences.theme}-surface0"
 			/>
 		</label>
 		<div class="flex flex-row justify-center">
-			<button class="w-24 color-ctp-{$preferences.theme}-text bg-ctp-{$preferences.theme}-surface0"
+			<button
+				class="w-24 border-0 rounded-lg color-ctp-{$preferences.theme}-text bg-ctp-{$preferences.theme}-surface0"
 				>Log in</button
 			>
 		</div>

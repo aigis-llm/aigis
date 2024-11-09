@@ -9,10 +9,10 @@
 		"@sveltejs/adapter-auto": "^3.3.1",
 		"@sveltejs/kit": "^2.8.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
-		"@tuhana/unocss-catppuccin": "npm:@jsr/tuhana__unocss-catppuccin",
 		"@types/eslint": "^9.6.1",
 		"@unocss/extractor-svelte": "^0.64.0",
 		"concurrently": "^9.1.0",
+		"css-tree": "^3.0.1",
 		"eslint": "^9.14.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.46.0",
@@ -30,6 +30,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@catppuccin/palette": "^1.7.1",
+		"@fontsource/fira-code": "^5.1.0",
+		"@fontsource/inter": "^5.1.0",
 		"@supabase/ssr": "^0.5.1",
 		"@supabase/supabase-js": "^2.46.1",
 		"svelte-persisted-store": "^0.12.0"
