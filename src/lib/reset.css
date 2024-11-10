@@ -78,23 +78,31 @@ h6 {
 	font-feature-settings: "calt" 1;
 }
 
+/* inputs */
+/*
+	fix inputs changing to white on autofill
+	https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete#comment96154809_29350537
+*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: all 0s 50000000s;
+}
+
 /* themes */
 .theme-latte {
 	--at-apply: bg-[--ctp-latte-base] color-[--ctp-latte-text];
-	--ctp-surface1: --ctp-latte-surface1;
 }
 
 .theme-frappe {
 	--at-apply: bg-[--ctp-frappe-base] color-[--ctp-frappe-text];
-	--ctp-surface1: --ctp-frappe-surface1;
 }
 
 .theme-macchiato {
 	--at-apply: bg-[--ctp-macchiato-base] color-[--ctp-macchiato-text];
-	--ctp-surface1: --ctp-macchiato-surface1;
 }
 
 .theme-mocha {
 	--at-apply: bg-[--ctp-mocha-base] color-[--ctp-mocha-text];
-	--ctp-surface1: var(--ctp-mocha-surface1);
 }
