@@ -1,9 +1,5 @@
-<script lang="ts">
-	import { preferences } from "$lib/stores"
-</script>
-
 <div class="h-screen flex flex-col items-center justify-center">
-	<h1>Login</h1>
+	<h1>Log In</h1>
 	<form method="POST">
 		<label class="flex flex-row w-full py-2">
 			<p class="flex-1 text-center px-2">Email</p>
@@ -24,10 +20,9 @@
 			/>
 		</label>
 		<div class="flex flex-row justify-center">
-			<button
-				class="w-24 border-0 rounded-lg color-[--ctp-text] bg-[--ctp-surface0]"
-				>Log in</button
-			>
+			<button class="w-24 border-0 rounded-lg color-[--ctp-text] bg-[--ctp-surface0]">
+				Log In
+			</button>
 		</div>
 	</form>
 </div>
