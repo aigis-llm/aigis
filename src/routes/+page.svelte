@@ -25,7 +25,7 @@
 	1.00; 9.44, −0.13<br />
 	0:00. 1.13; ~7.12
 </p>
-<code class="font-mono color-ctp-{$preferences.theme}-rosewater">
+<code class="font-mono color-[--ctp-rosewater]">
 	0.45, 0.91. +0.08<br />
 	1.00; 9.44, −0.13<br />
 	0:00. 1.13; ~7.12</code
