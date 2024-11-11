@@ -4,6 +4,7 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
 	plugins: [UnoCSS(), sveltekit()],
+	//makes eslint happy
 	//test: {
 	//	include: ["src/**/*.{test,spec}.{js,ts}"],
 	//},
