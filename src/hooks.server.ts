@@ -19,7 +19,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 					 * will replicate previous/standard behavior (https://kit.svelte.dev/docs/types#public-types-cookies)
 					 */
 					cookiesToSet.forEach(({ name, value, options }) =>
-						event.cookies.set(name, value, { ...options, path: "/" }),
+						event.cookies.set(name, value, {
+							...options,
+							path: "/",
+							secure: import.meta.env.PROD ? true : false,
+						}),
 					)
 				},
 			},
