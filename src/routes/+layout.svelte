@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { classList } from "svelte-body"
-	import { preferences } from "../stores"
+	import { preferences } from "$lib/stores"
 	import "$lib/reset.css"
 	import "virtual:uno.css"
 	import { invalidate } from "$app/navigation"

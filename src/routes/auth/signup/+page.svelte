@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { preferences } from "../../../stores"
+	import { preferences } from "$lib/stores"
 	let password = $state("")
 	let passwordconfirm = $state("")
 </script>
