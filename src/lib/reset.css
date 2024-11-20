@@ -3,8 +3,9 @@
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
 
-@import url(https://rsms.me/inter/inter.css);
-@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+@import "@fontsource/inter";
+@import "@fontsource/fira-code";
+@import "@catppuccin/palette/css/catppuccin.css";
 
 *,
 *::before,
@@ -91,17 +92,17 @@ input:-webkit-autofill:active {
 
 /* themes */
 .theme-latte {
-	--at-apply: bg-ctp-latte-base color-ctp-latte-text;
+	--at-apply: bg-[--ctp-latte-base] color-[--ctp-latte-text];
 }
 
 .theme-frappe {
-	--at-apply: bg-ctp-frappe-base color-ctp-frappe-text;
+	--at-apply: bg-[--ctp-frappe-base] color-[--ctp-frappe-text];
 }
 
 .theme-macchiato {
-	--at-apply: bg-ctp-macchiato-base color-ctp-macchiato-text;
+	--at-apply: bg-[--ctp-macchiato-base] color-[--ctp-macchiato-text];
 }
 
 .theme-mocha {
-	--at-apply: bg-ctp-mocha-base color-ctp-mocha-text;
+	--at-apply: bg-[--ctp-mocha-base] color-[--ctp-mocha-text];
 }
