@@ -2,8 +2,11 @@
 	import type { LayoutData } from "./$types"
 	import { preferences } from "$lib/stores"
 	import type { Snippet } from "svelte"
+	import Select from "$lib/Select.svelte"
 
 	let { data }: { data: LayoutData; children: Snippet } = $props()
+
+	const flavors = ["latte", "frappe", "macchiato", "mocha"]
 
 	const loadBackendData = async () => {
 		return await (await data.backend_fetch(import.meta.env.AIGIS_BACKEND_URL)).text()
@@ -18,6 +21,7 @@
 	<option value="macchiato">Machhiato</option>
 	<option value="mocha">Mocha</option>
 </select>
+<Select options={flavors} bind:selected={$preferences.theme}></Select>
 <p>Illegal</p>
 <p>3.14</p>
 <p>
