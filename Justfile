@@ -10,7 +10,7 @@ register-toolchain:
 
 generate:
 	supabase start
-	supabase gen types --lang=typescript --local > database.types.ts
+	supabase gen types --lang=typescript --local > src/lib/database.types.ts
 	@echo "You can run \`supabase stop\` to stop the DB if you wish."
 
 dev:

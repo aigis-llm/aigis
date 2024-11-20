@@ -1,5 +1,5 @@
 import create_backend_fetch from "$lib/backend_fetch.js"
-import type { Database } from "../../database.types.ts"
+import type { Database } from "$lib/database.types.ts"
 import type { LayoutLoad } from "./$types"
 import { createBrowserClient, createServerClient, isBrowser } from "@supabase/ssr"
 

@@ -1,5 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js"
-import type { Database } from "../../database.types"
+import type { Database } from "$lib/database.types.ts"
 
 export default function create_backend_fetch(supa: SupabaseClient<Database>) {
 	return async (input: RequestInfo | URL, init?: RequestInit) => {
