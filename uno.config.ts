@@ -7,16 +7,51 @@ import {
 	transformerDirectives,
 } from "unocss"
 import extractorSvelte from "@unocss/extractor-svelte"
-import { presetCatppuccin } from "@tuhana/unocss-catppuccin"
+import * as cssTree from "css-tree"
 import { flavorEntries } from "@catppuccin/palette"
 
 export default defineConfig({
 	extractors: [extractorSvelte()],
 	transformers: [transformerDirectives()],
+	preflights: [
+		{
+			getCSS: () => {
+				const ast = cssTree.parse("") as cssTree.StyleSheet
+				for (const flavor of flavorEntries) {
+					const flavorRule: cssTree.Rule = {
+						type: "Rule",
+						prelude: {
+							type: "SelectorList",
+							children: new cssTree.List<cssTree.CssNode>().appendData({
+								type: "Selector",
+								children: new cssTree.List<cssTree.CssNode>().appendData({
+									type: "ClassSelector",
+									name: `theme-${flavor[0]}`,
+								}),
+							}),
+						},
+						block: {
+							type: "Block",
+							children: new cssTree.List(),
+						},
+					}
+					for (const color of flavor[1].colorEntries) {
+						flavorRule.block.children.push({
+							type: "Declaration",
+							property: `--ctp-${color[0]}`,
+							value: { type: "Raw", value: `hsl(var(--ctp-${flavor[0]}-${color[0]}-hsl))` },
+							important: false,
+						})
+					}
+					ast.children.push(flavorRule)
+				}
+				return cssTree.generate(ast as cssTree.CssNode)
+			},
+		},
+	],
 	presets: [
 		presetUno(),
 		presetIcons(),
-		presetCatppuccin(),
 		presetWebFonts({
 			provider: "none",
 			fonts: {
@@ -26,17 +61,5 @@ export default defineConfig({
 		}),
 		presetTypography(),
 	],
-	safelist: [
-		"font-sans",
-		...(() => {
-			const output: Array<string> = []
-			for (const flavor of flavorEntries) {
-				for (const color of flavor[1].colorEntries) {
-					output.push(`color-ctp-${flavor[0]}-${color[0]}`)
-					output.push(`bg-ctp-${flavor[0]}-${color[0]}`)
-				}
-			}
-			return output
-		})(),
-	],
+	safelist: ["font-sans"],
 })
