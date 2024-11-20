@@ -1,4 +1,4 @@
-import type { Database } from "../database.types.ts"
+import type { Database } from "$lib/database.types.ts"
 import { createServerClient } from "@supabase/ssr"
 import type { Handle } from "@sveltejs/kit"
 
