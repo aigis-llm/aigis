@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { LayoutData } from "./$types"
-	import { preferences } from "../stores"
+	import { preferences } from "$lib/stores"
 	import type { Snippet } from "svelte"
 
-	let { data, children }: { data: LayoutData; children: Snippet } = $props()
+	let { data }: { data: LayoutData; children: Snippet } = $props()
 
 	const loadBackendData = async () => {
 		return await (await data.backend_fetch(import.meta.env.AIGIS_BACKEND_URL)).text()

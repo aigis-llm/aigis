@@ -16,7 +16,6 @@ export default defineConfig({
 	presets: [
 		presetUno(),
 		presetIcons(),
-		//@ts-expect-error idk this does not like me
 		presetCatppuccin(),
 		presetWebFonts({
 			provider: "none",
