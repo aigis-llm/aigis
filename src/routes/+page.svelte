@@ -6,7 +6,12 @@
 
 	let { data }: { data: LayoutData; children: Snippet } = $props()
 
-	const flavors = ["latte", "frappe", "macchiato", "mocha"]
+	const flavors = [
+		{value: "latte", item: "Latte"},
+		{value: "frappe", item: "Frappé"},
+		{value: "macchiato", item: "Macchiato"},
+		{value: "mocha", item: "Mocha"},
+	]
 
 	const loadBackendData = async () => {
 		return await (await data.backend_fetch(import.meta.env.AIGIS_BACKEND_URL)).text()
@@ -15,13 +20,9 @@
 
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<select bind:value={$preferences.theme}>
-	<option value="latte">Latte</option>
-	<option value="frappe">Frappe</option>
-	<option value="macchiato">Machhiato</option>
-	<option value="mocha">Mocha</option>
-</select>
+<div class="px-3">
 <Select options={flavors} bind:selected={$preferences.theme} class="w-30"></Select>
+</div>
 <p>Illegal</p>
 <p>3.14</p>
 <p>
