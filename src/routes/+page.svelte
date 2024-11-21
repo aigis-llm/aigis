@@ -21,7 +21,7 @@
 	<option value="macchiato">Machhiato</option>
 	<option value="mocha">Mocha</option>
 </select>
-<Select options={flavors} bind:selected={$preferences.theme}></Select>
+<Select options={flavors} bind:selected={$preferences.theme} class="w-30"></Select>
 <p>Illegal</p>
 <p>3.14</p>
 <p>
