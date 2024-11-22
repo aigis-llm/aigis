@@ -5,7 +5,11 @@
 		options = $bindable([]),
 		selected = $bindable(),
 		class: className = $bindable(""),
-	}: { options: Array<{value: string, item: string}>; selected: string | undefined; class: string } = $props()
+	}: {
+		options: Array<{ value: string; label: string }>
+		selected: string | undefined
+		class: string
+	} = $props()
 
 	/* eslint-disable @typescript-eslint/no-unused-vars */
 	const {
@@ -30,7 +34,10 @@
 
 <!-- svelte-ignore a11y_label_has_associated_control -->
 <label use:melt={$label}></label>
-<button class="flex flex-row items-center rounded-md cursor-pointer border-0 color-[--ctp-text] bg-[--ctp-surface0] {className}" use:melt={$trigger}>
+<button
+	class="flex flex-row items-center rounded-md cursor-pointer border-0 color-[--ctp-text] bg-[--ctp-surface0] {className}"
+	use:melt={$trigger}
+>
 	<div class="flex-1 text-start">{selected}</div>
 	<div class="i-tabler:chevron-down flex-initial w-1em h-1em inline-block"></div>
 </button>
@@ -41,10 +48,10 @@
 	>
 		{#each options as item}
 			<div
-				class="rounded-lg p-1 hover:bg-[--ctp-surface1] !aria-selected:bg-[--ctp-surface2] cursor-pointer"
+				class="rounded-lg p-1 data-[highlighted]:bg-[--ctp-surface1] !aria-selected:bg-[--ctp-surface2] cursor-pointer"
 				use:melt={$option(item)}
 			>
-				{item.item}
+				{item.label}
 			</div>
 		{/each}
 	</div>

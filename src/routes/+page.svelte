@@ -7,10 +7,10 @@
 	let { data }: { data: LayoutData; children: Snippet } = $props()
 
 	const flavors = [
-		{value: "latte", item: "Latte"},
-		{value: "frappe", item: "Frappé"},
-		{value: "macchiato", item: "Macchiato"},
-		{value: "mocha", item: "Mocha"},
+		{ value: "latte", label: "Latte" },
+		{ value: "frappe", label: "Frappé" },
+		{ value: "macchiato", label: "Macchiato" },
+		{ value: "mocha", label: "Mocha" },
 	]
 
 	const loadBackendData = async () => {
@@ -21,7 +21,7 @@
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 <div class="px-3">
-<Select options={flavors} bind:selected={$preferences.theme} class="w-30"></Select>
+	<Select options={flavors} bind:selected={$preferences.theme} class="w-30"></Select>
 </div>
 <p>Illegal</p>
 <p>3.14</p>
