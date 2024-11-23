@@ -40,7 +40,7 @@
 </button>
 {#if $open}
 	<div
-		class="z-10 flex max-h-[300px] flex-col overflow-y-auto rounded-lg bg-[--ctp-surface0] p-1 focus:!ring-0"
+		class="z-10 flex max-h-[300px] flex-col overflow-y-auto rounded-lg bg-[--ctp-surface0] p-1"
 		use:melt={$menu}
 	>
 		{#each options as item}
