@@ -13,6 +13,16 @@
 		{ value: "mocha", label: "Mocha" },
 	]
 
+	let flavorLabel = $state(
+		flavors.find((flavor) => flavor.value == $preferences.theme) || {
+			value: "ERROR",
+			label: "ERROR",
+		},
+	)
+	$effect(() => {
+		$preferences.theme = flavorLabel.value
+	})
+
 	const loadBackendData = async () => {
 		return await (await data.backend_fetch(import.meta.env.AIGIS_BACKEND_URL)).text()
 	}
@@ -21,7 +31,7 @@
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 <div class="px-3">
-	<Select options={flavors} bind:selected={$preferences.theme} class="w-30"></Select>
+	<Select options={flavors} bind:selected={flavorLabel} class="w-30"></Select>
 </div>
 <p>Illegal</p>
 <p>3.14</p>

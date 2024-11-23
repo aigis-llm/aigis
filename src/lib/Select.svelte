@@ -3,19 +3,17 @@
 
 	let {
 		options = $bindable([]),
-		selected = $bindable(),
+		selected = $bindable({ value: "ERROR", label: "ERROR" }),
 		class: className = $bindable(""),
 	}: {
 		options: Array<{ value: string; label: string }>
-		selected: string | undefined
+		selected: { value: string; label: string }
 		class: string
 	} = $props()
 
-	/* eslint-disable @typescript-eslint/no-unused-vars */
 	const {
-		elements: { trigger, menu, option, group, groupLabel, label },
+		elements: { trigger, menu, option, label },
 		states: { selectedLabel, open },
-		helpers: { isSelected },
 	} = createSelect<string>({
 		forceVisible: true,
 		positioning: {
@@ -23,22 +21,21 @@
 			fitViewport: true,
 			sameWidth: true,
 		},
-		defaultSelected: { value: selected || "", label: selected },
+		defaultSelected: { value: selected?.value || "", label: selected?.label },
 		onSelectedChange: (change) => {
-			selected = change.next?.value
+			selected.value = change.next?.value || ""
 			return change.next
 		},
 	})
-	/* eslint-enable @typescript-eslint/no-unused-vars */
 </script>
 
 <!-- svelte-ignore a11y_label_has_associated_control -->
 <label use:melt={$label}></label>
 <button
-	class="flex flex-row items-center rounded-md cursor-pointer border-0 color-[--ctp-text] bg-[--ctp-surface0] {className}"
+	class="flex flex-row items-center rounded-md cursor-pointer border-2 border-solid border-[--ctp-surface1] color-[--ctp-text] bg-[--ctp-surface0] {className}"
 	use:melt={$trigger}
 >
-	<div class="flex-1 text-start">{selected}</div>
+	<div class="flex-1 text-start">{$selectedLabel}</div>
 	<div class="i-tabler:chevron-down flex-initial w-1em h-1em inline-block"></div>
 </button>
 {#if $open}
