@@ -21,6 +21,6 @@
 	})
 </script>
 
-<svelte:body use:classList={`theme-${$preferences.theme}`} />
+<svelte:body use:classList={`theme-${$preferences.theme} font-sans`} />
 
 {@render children()}
