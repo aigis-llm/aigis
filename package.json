@@ -4,6 +4,7 @@
 	"private": true,
 	"license": "ISC",
 	"devDependencies": {
+		"@iconify-json/tabler": "^1.2.8",
 		"@melt-ui/pp": "^0.3.2",
 		"@melt-ui/svelte": "^0.86.0",
 		"@sveltejs/adapter-auto": "^3.3.1",
