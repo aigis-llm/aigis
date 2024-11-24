@@ -29,9 +29,11 @@
 </script>
 
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<p>
+	Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
+</p>
 <div class="px-3">
-	<Select options={flavors} bind:selected={flavorLabel} class="w-30"></Select>
+	<Select options={flavors} bind:selected={flavorLabel} class="w-30">Flavor:</Select>
 </div>
 <p>Illegal</p>
 <p>3.14</p>

@@ -1,22 +1,27 @@
 <script lang="ts">
 	import { createSelect, melt } from "@melt-ui/svelte"
+	import type { Snippet } from "svelte"
 
 	let {
+		children,
 		options = $bindable([]),
 		selected = $bindable({ value: "ERROR", label: "ERROR" }),
 		class: className = $bindable(""),
+		label_class = $bindable(""),
 		button_label_class = $bindable(""),
 		button_icon_class = $bindable(""),
 		select_div_class = $bindable(""),
 		select_option_class = $bindable(""),
 	}: {
+		children: Snippet
 		options: Array<{ value: string; label: string }>
 		selected: { value: string; label: string }
-		class: string | undefined
-		button_label_class: string | undefined
-		button_icon_class: string | undefined
-		select_div_class: string | undefined
-		select_option_class: string | undefined
+		class?: string
+		label_class?: string
+		button_label_class?: string
+		button_icon_class?: string
+		select_div_class?: string
+		select_option_class?: string
 	} = $props()
 
 	const {
@@ -37,8 +42,7 @@
 	})
 </script>
 
-<!-- svelte-ignore a11y_label_has_associated_control -->
-<label use:melt={$label}></label>
+<label class={label_class} use:melt={$label}>{@render children()}</label>
 <button
 	class="flex flex-row items-center rounded-md cursor-pointer border-2 border-solid border-[--ctp-surface1] color-[--ctp-text] bg-[--ctp-surface0] {className}"
 	use:melt={$trigger}
