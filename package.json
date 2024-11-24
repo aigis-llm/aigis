@@ -33,8 +33,6 @@
 	"type": "module",
 	"dependencies": {
 		"@catppuccin/palette": "^1.7.1",
-		"@fontsource/fira-code": "^5.1.0",
-		"@fontsource/inter": "^5.1.0",
 		"@supabase/ssr": "^0.5.2",
 		"@supabase/supabase-js": "^2.46.1",
 		"svelte-persisted-store": "^0.12.0"
