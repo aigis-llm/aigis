@@ -2,8 +2,26 @@
 	import type { LayoutData } from "./$types"
 	import { preferences } from "$lib/stores"
 	import type { Snippet } from "svelte"
+	import Select from "$lib/Select.svelte"
 
 	let { data }: { data: LayoutData; children: Snippet } = $props()
+
+	const flavors = [
+		{ value: "latte", label: "Latte" },
+		{ value: "frappe", label: "Frappé" },
+		{ value: "macchiato", label: "Macchiato" },
+		{ value: "mocha", label: "Mocha" },
+	]
+
+	let flavorLabel = $state(
+		flavors.find((flavor) => flavor.value == $preferences.theme) || {
+			value: "ERROR",
+			label: "ERROR",
+		},
+	)
+	$effect(() => {
+		$preferences.theme = flavorLabel.value
+	})
 
 	const loadBackendData = async () => {
 		return await (await data.backend_fetch(import.meta.env.AIGIS_BACKEND_URL)).text()
@@ -11,13 +29,12 @@
 </script>
 
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<select bind:value={$preferences.theme}>
-	<option value="latte">Latte</option>
-	<option value="frappe">Frappe</option>
-	<option value="macchiato">Machhiato</option>
-	<option value="mocha">Mocha</option>
-</select>
+<p>
+	Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
+</p>
+<div class="px-3">
+	<Select options={flavors} bind:selected={flavorLabel} class="w-30">Flavor:</Select>
+</div>
 <p>Illegal</p>
 <p>3.14</p>
 <p>
