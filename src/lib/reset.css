@@ -3,8 +3,8 @@
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
 
-@import "@fontsource/inter";
-@import "@fontsource/fira-code";
+@import url(https://rsms.me/inter/inter.css);
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 @import "@catppuccin/palette/css/catppuccin.css";
 
 *,
@@ -68,6 +68,7 @@ h6 {
 /* font features */
 .font-sans {
 	font-feature-settings:
+		"liga" 1,
 		"calt" 1,
 		"tnum" 1,
 		"ss01" 1,
