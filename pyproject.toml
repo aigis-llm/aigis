@@ -6,12 +6,12 @@ authors = [
     { name = "bitbloxhub", email = "45184892+bitbloxhub@users.noreply.github.com" }
 ]
 dependencies = [
-    "mypy>=1.11.0",
-    "fastapi[standard]>=0.115.4",
-    "supabase>=2.9.1",
+    "mypy>=1.13.0",
+    "fastapi[standard]>=0.115.5",
+    "supabase>=2.10.0",
 ]
 readme = "README.md"
-requires-python = ">= 3.12"
+requires-python = ">= 3.13"
 
 [build-system]
 requires = ["hatchling"]
@@ -20,7 +20,7 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "jedi @ git+https://github.com/davidhalter/jedi@30adf43a8929ade8a9e0abee6921a5043c962215",
+    "jedi>=0.19.2",
 ]
 
 [tool.ruff]
