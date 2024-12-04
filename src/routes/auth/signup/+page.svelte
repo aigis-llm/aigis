@@ -3,7 +3,7 @@
 	let passwordconfirm = $state("")
 </script>
 
-<div class="h-screen flex flex-col items-center justify-center">
+<div class="h-screen flex flex-col items-center justify-center px-4">
 	<h1>Sign Up</h1>
 	<form method="POST">
 		<label class="flex flex-row w-full py-2">

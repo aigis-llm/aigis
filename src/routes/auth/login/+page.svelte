@@ -1,4 +1,4 @@
-<div class="h-screen flex flex-col items-center justify-center">
+<div class="h-screen flex flex-col items-center justify-center px-4">
 	<h1>Log In</h1>
 	<form method="POST">
 		<label class="flex flex-row w-full py-2">
