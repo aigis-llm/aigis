@@ -61,5 +61,5 @@ export default defineConfig({
 		}),
 		presetTypography(),
 	],
-	safelist: ["font-sans"],
+	safelist: ["font-sans", "!hidden"],
 })
