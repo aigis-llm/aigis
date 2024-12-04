@@ -1,10 +1,11 @@
 import os
-from typing import Annotated
 from collections.abc import AsyncGenerator
-from fastapi import FastAPI, Request, Depends
-from fastapi.middleware.cors import CORSMiddleware
-from supabase import create_async_client, AsyncClient, AsyncClientOptions
+from typing import Annotated
 
+from fastapi import Depends, FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+
+from supabase import AsyncClient, AsyncClientOptions, create_async_client
 
 supabase_url: str = os.environ.get("AIGIS_SUPABASE_URL", "http://localhost:8068")
 supabase_key: str = os.environ.get(

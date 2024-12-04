@@ -31,5 +31,6 @@ alias fmt := format
 
 format:
 	bunx --bun prettier --write .
+	ruff check --select I --fix
 	ruff format
 	nixfmt flake.nix
