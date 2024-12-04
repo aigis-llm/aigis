@@ -35,7 +35,9 @@
 		"@catppuccin/palette": "^1.7.1",
 		"@supabase/ssr": "^0.5.2",
 		"@supabase/supabase-js": "^2.46.1",
+		"firacode": "^6.2.0",
 		"focus-trap": "^7.6.2",
+		"inter-ui": "^4.1.0",
 		"svelte-persisted-store": "^0.12.0"
 	}
 }
