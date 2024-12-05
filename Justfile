@@ -25,7 +25,7 @@ lint:
 	bunx --bun prettier --check .
 	bunx --bun eslint . 
 	ruff check
-	mypy src/aigis/
+	basedpyright src/aigis/
 
 alias fmt := format
 

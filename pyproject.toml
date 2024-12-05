@@ -6,7 +6,6 @@ authors = [
     { name = "bitbloxhub", email = "45184892+bitbloxhub@users.noreply.github.com" }
 ]
 dependencies = [
-    "mypy>=1.13.0",
     "fastapi[standard]>=0.115.5",
     "supabase>=2.10.0",
 ]
@@ -30,7 +29,7 @@ override-dependencies = [
 
 [dependency-groups]
 dev = [
-    "jedi>=0.19.2",
+    "basedpyright>=1.22.1",
     "ruff>=0.8.1",
 ]
 
