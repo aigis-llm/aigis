@@ -1,0 +1,90 @@
+diff -ruN node_modules/svelte/package.json vendor-node/svelte/package.json
+--- node_modules/svelte/package.json	2024-12-07 18:12:30.640029409 +0000
++++ vendor-node/svelte/package.json	2024-12-07 18:09:23.897803222 +0000
+@@ -24,6 +24,9 @@
+       "browser": "./src/index-client.js",
+       "default": "./src/index-server.js"
+     },
++    "./client": {
++      "default": "./src/index-client.js"
++    },
+     "./package.json": "./package.json",
+     "./action": {
+       "types": "./types/index.d.ts"
+@@ -50,15 +53,36 @@
+     "./internal/client": {
+       "default": "./src/internal/client/index.js"
+     },
++    "./internal/client/runtime": {
++      "default": "./src/internal/client/runtime.js"
++    },
++    "./internal/client/render": {
++      "default": "./src/internal/client/render.js"
++    },
++    "./internal/client/errors": {
++      "default": "./src/internal/client/errors.js"
++    },
++    "./internal/client/dom/blocks/snippet": {
++      "default": "./src/internal/client/dom/blocks/snippet.js"
++    },
+     "./internal/disclose-version": {
+       "default": "./src/internal/disclose-version.js"
+     },
++    "./internal/flags": {
++      "default": "./src/internal/flags/index.js"
++    },
+     "./internal/flags/legacy": {
+       "default": "./src/internal/flags/legacy.js"
+     },
+     "./internal/server": {
+       "default": "./src/internal/server/index.js"
+     },
++    "./internal/shared/utils": {
++      "default": "./src/internal/shared/utils.js"
++    },
++    "./internal/shared/errors": {
++      "default": "./src/internal/shared/errors.js"
++    },
+     "./legacy": {
+       "types": "./types/index.d.ts",
+       "browser": "./src/legacy/legacy-client.js",
+diff -ruN node_modules/svelte/src/index-client.js vendor-node/svelte/src/index-client.js
+--- node_modules/svelte/src/index-client.js	2024-12-07 18:12:30.636029426 +0000
++++ vendor-node/svelte/src/index-client.js	2024-12-07 18:09:23.898803219 +0000
+@@ -1,12 +1,12 @@
+ /** @import { ComponentContext, ComponentContextLegacy } from '#client' */
+ /** @import { EventDispatcher } from './index.js' */
+ /** @import { NotFunction } from './internal/types.js' */
+-import { component_context, flush_sync, untrack } from './internal/client/runtime.js';
+-import { is_array } from './internal/shared/utils.js';
+-import { user_effect } from './internal/client/index.js';
+-import * as e from './internal/client/errors.js';
+-import { lifecycle_outside_component } from './internal/shared/errors.js';
+-import { legacy_mode_flag } from './internal/flags/index.js';
++import { component_context, flush_sync, untrack } from 'svelte/internal/client/runtime';
++import { is_array } from 'svelte/internal/shared/utils';
++import { user_effect } from 'svelte/internal/client';
++import * as e from 'svelte/internal/client/errors';
++import { lifecycle_outside_component } from 'svelte/internal/shared/errors';
++import { legacy_mode_flag } from 'svelte/internal/flags';
+ 
+ /**
+  * The `onMount` function schedules a callback to run as soon as the component has been mounted to the DOM.
+@@ -179,7 +179,7 @@
+ 	flush_sync(fn);
+ }
+ 
+-export { hydrate, mount, unmount } from './internal/client/render.js';
++export { hydrate, mount, unmount } from 'svelte/internal/client/render';
+ 
+ export {
+ 	getContext,
+@@ -188,6 +188,6 @@
+ 	setContext,
+ 	tick,
+ 	untrack
+-} from './internal/client/runtime.js';
++} from 'svelte/internal/client/runtime';
+ 
+-export { createRawSnippet } from './internal/client/dom/blocks/snippet.js';
++export { createRawSnippet } from 'svelte/internal/client/dom/blocks/snippet';
