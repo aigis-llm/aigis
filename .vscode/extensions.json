@@ -1,0 +1,18 @@
+{
+	"recommendations": [
+		// Dev tools
+		"jnoortheen.nix-ide",
+		"mkhl.mkhl-just",
+		"nefrob.vscode-just-syntax",
+		"mkhl.direnv",
+		// Python
+		"detachhead.basedpyright",
+		"charliermarsh.ruff",
+		// Frontend
+		"oven.bun-vscode",
+		"svelte.svelte-vscode",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"antfu.unocss"
+	]
+}
