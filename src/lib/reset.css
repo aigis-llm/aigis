@@ -3,8 +3,8 @@
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
 
-@import url(https://rsms.me/inter/inter.css);
-@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+@import "inter-ui/inter.css";
+@import "firacode/distr/fira_code.css";
 @import "@catppuccin/palette/css/catppuccin.css";
 
 *,
