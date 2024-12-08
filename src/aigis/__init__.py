@@ -1,5 +1,6 @@
 import os
-from typing import AsyncGenerator, Annotated
+from typing import Annotated
+from collections.abc import AsyncGenerator
 from fastapi import FastAPI, Request, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_async_client, AsyncClient, AsyncClientOptions
@@ -45,5 +46,5 @@ SupabaseDep = Annotated[AsyncClient, Depends(supabase_client)]
 
 
 @app.get("/")
-async def hello_world(request: Request, supa: SupabaseDep):
+async def hello_world(request: Request, _supa: SupabaseDep):
 	return request.headers.get("Authorization")
