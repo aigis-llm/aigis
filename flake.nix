@@ -113,6 +113,10 @@
                 export REPO_ROOT=$(git rev-parse --show-toplevel)
                 # Make uv use our Python.
                 export UV_PYTHON=$(which python)
+                # Stop uv from syncing
+                export UV_NO_SYNC=1
+                # Stop uv from downloading python
+                export UV_PYTHON_DOWNLOADS=never
               '';
             };
         };
