@@ -19,7 +19,8 @@ preview:
 	bunx --bun concurrently --kill-others "uvicorn aigis:app --port 8070 --host 0.0.0.0" "bunx --bun vite preview --port 8071 --host 0.0.0.0"
 
 test:
-	bun test #TODO: proper test setup
+	# TODO: Test our frontend
+	pytest
 
 lint:
 	bunx --bun prettier --check .
