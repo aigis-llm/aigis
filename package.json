@@ -7,7 +7,7 @@
 		"@iconify-json/tabler": "^1.2.8",
 		"@melt-ui/pp": "^0.3.2",
 		"@melt-ui/svelte": "^0.86.2",
-		"@sveltejs/adapter-auto": "^3.3.1",
+		"@sveltejs/adapter-node": "^5.2.9",
 		"@sveltejs/kit": "^2.8.4",
 		"@sveltejs/vite-plugin-svelte": "^4.0.2",
 		"@types/css-tree": "^2.3.9",
