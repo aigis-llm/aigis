@@ -20,7 +20,7 @@ preview:
 
 test:
 	pytest src/
-	bun test src/
+	bun test src/ --conditions=browser
 
 lint:
 	bunx --bun prettier --check .
