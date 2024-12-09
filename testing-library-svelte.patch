@@ -21,7 +21,7 @@ diff -ruN node_modules/@testing-library/svelte/src/core/modern.js vendor-node/@t
 + *
 + * Supports Svelte >= 5.
 + */
-+import * as Svelte from 'svelte/client';
++import * as Svelte from 'svelte';
 +
 +/** Props signals for each rendered component. */
 +const propsByComponent = new Map();
