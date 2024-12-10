@@ -5,6 +5,11 @@ import unocss_config from "../../uno.config"
 import { sleep } from "bun"
 import type { Component } from "svelte"
 
+export function pixel7() {
+	window.innerWidth = 412
+	window.innerHeight = 915
+}
+
 export async function render(component: Component) {
 	_render(component)
 	const head = document.querySelector("head") as HTMLHeadElement
