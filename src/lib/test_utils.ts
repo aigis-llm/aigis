@@ -38,5 +38,8 @@ export async function render(component: Component) {
 			childList: true,
 			subtree: true,
 		})
+		setTimeout(() => {
+			resolve(null)
+		}, 500) // Should fix tests timing out
 	})
 }
