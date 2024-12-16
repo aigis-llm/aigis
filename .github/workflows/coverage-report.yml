@@ -1,0 +1,32 @@
+name: Create Code Coverage Report
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches: "**"
+
+jobs:
+  Report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for tests to complete
+        uses: codex-/await-local-workflow-run@v1
+        with:
+          token: ${{ github.token }}
+          workflow: ci.yml
+          poll_interval_ms: 10000
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Job setup
+        uses: ./.github/actions/job-setup
+
+      - name: Generate report
+        shell: bash
+        run: bun run lcov-report.ts
+        env:
+          COV_SHA: ${{ github.event.pull_request.head.sha }}
