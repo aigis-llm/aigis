@@ -3,18 +3,14 @@
 	import { onMount } from "svelte"
 	import { createFocusTrap, type FocusTarget, type FocusTrap } from "focus-trap"
 	import { afterNavigate } from "$app/navigation"
+	import { MediaQuery } from "svelte/reactivity"
 
+	let mq = new MediaQuery("(min-width: 640px)")
 	let opened = $state(true)
-	let mobile = $state(true)
+	let mobile = $derived(!mq.current)
 	let ft: FocusTrap
 
 	onMount(() => {
-		let mql = matchMedia("(min-width: 640px)")
-		function mqlChange(e: MediaQueryListEvent | MediaQueryList) {
-			mobile = !e.matches
-		}
-		mqlChange(mql)
-		mql.addEventListener("change", mqlChange)
 		opened = !mobile
 		const trapElem = document.querySelector("#menu") as HTMLElement
 		ft = createFocusTrap(trapElem, {
