@@ -29,3 +29,9 @@ vite.config.ts.timestamp-*
 .direnv
 
 vendor-node
+
+# Coverage
+coverage/
+.coverage
+coverage.lcov
+merged-coverage.lcov
