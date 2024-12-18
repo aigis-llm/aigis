@@ -20,7 +20,7 @@ preview:
 
 test:
 	pytest --cov=src/aigis/ --cov-report lcov --cov-report term-missing src/
-	bun test src/ --conditions=browser
+	bun test src/ --conditions=browser --conditions=svelte
 	bun run covfix.ts
 
 lint:
