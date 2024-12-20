@@ -95,13 +95,41 @@
               #
               # Enable all optional dependencies for development.
               virtualenv = editablePythonSet.mkVirtualEnv "aigis-dev-env" workspace.deps.all;
+
+              bunLatest = pkgs.bun.overrideAttrs (
+                final: prev:
+                with pkgs;
+                prev
+                // rec {
+                  version = "1.1.41";
+                  src =
+                    passthru.sources.${stdenvNoCC.hostPlatform.system}
+                      or (throw "Unsupported system: ${stdenvNoCC.hostPlatform.system}");
+                  passthru = prev.passthru // {
+                    sources = prev.passthru.sources // {
+                      "aarch64-darwin" = fetchurl {
+                        url = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-darwin-aarch64.zip";
+                        sha256 = "sha256-ePPTdg34SWd5TV26HWYJFdw/gtEGSWLvHce8IJy8af4=";
+                      };
+                      "x86_64-darwin" = fetchurl {
+                        url = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-darwin-x64.zip";
+                        sha256 = "sha256-ERVScu6RO7TCch4c/KrWdqerA45gz/NpfyQYcvLHOQQ=";
+                      };
+                      "x86_64-linux" = fetchurl {
+                        url = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-linux-x64.zip";
+                        sha256 = "sha256-KNq/ug2cLAN8AEOL3o12EpydaYJVp0TjusqGfW9UiBk=";
+                      };
+                    };
+                  };
+                }
+              );
             in
             pkgs.mkShell {
               packages = [
                 pkgs.nixfmt-rfc-style
                 virtualenv
                 pkgs.uv
-                pkgs.bun
+                bunLatest
                 pkgs.just
                 pkgs.supabase-cli
               ];
