@@ -1,6 +1,7 @@
 import { test, expect, afterEach } from "bun:test"
 import Navbar from "$lib/Navbar.svelte"
-import { screen, render, cleanup } from "@testing-library/svelte"
+import { screen, cleanup } from "@testing-library/svelte"
+import { render } from "$lib/test_utils"
 
 afterEach(cleanup)
 
