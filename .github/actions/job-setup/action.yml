@@ -1,0 +1,40 @@
+name: Job setup
+description: Sets up direnv and nix, and installs all dependencies
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Lix
+      uses: DeterminateSystems/nix-installer-action@main
+      with:
+        source-url: https://install.lix.systems/lix/lix-installer-x86_64-linux
+        logger: pretty
+        diagnostic-endpoint: ""
+
+    - name: Nix Magic Cache
+      uses: DeterminateSystems/magic-nix-cache-action@main
+      with:
+        diagnostic-endpoint: ""
+
+    - name: Install direnv
+      shell: bash
+      run: nix profile install nixpkgs#direnv
+
+    - name: Set up .env
+      shell: bash
+      run: cp .env.example .env
+
+    - name: Allow direnv
+      shell: bash
+      run: direnv allow .
+
+    - name: Load PATH changes
+      shell: bash
+      run: direnv exec . sh -c 'echo $PATH' > "$GITHUB_PATH"
+    - name: Load other environment changes
+      shell: bash
+      run: direnv export gha >> "$GITHUB_ENV"
+
+    - name: Install packages
+      shell: bash
+      run: just install
