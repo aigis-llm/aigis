@@ -1,4 +1,9 @@
-import { render as _render } from "@testing-library/svelte"
+import {
+	render as _render,
+	type Queries,
+	type RenderOptions,
+	type SvelteComponentOptions,
+} from "@testing-library/svelte"
 import initUnocssRuntime from "@unocss/runtime"
 import resetCss from "$lib/reset.css" with { type: "text" }
 import unocss_config from "../../uno.config"
@@ -10,8 +15,14 @@ export function pixel7() {
 	window.innerHeight = 915
 }
 
-export async function render(component: Component) {
-	_render(component)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function render<C extends Component<any, any, string>, Q extends Queries>(
+	component: C,
+	component_options: SvelteComponentOptions<C> = {},
+	render_options: RenderOptions<Q> = {},
+) {
+	//@ts-expect-error private type
+	_render(component, component_options, render_options)
 	const head = document.querySelector("head") as HTMLHeadElement
 	const html = document.querySelector("html") as HTMLHtmlElement
 	html.setAttribute("un-cloak", "a")
@@ -38,5 +49,8 @@ export async function render(component: Component) {
 			childList: true,
 			subtree: true,
 		})
+		setTimeout(() => {
+			resolve(null)
+		}, 500) // Should fix tests timing out
 	})
 }
