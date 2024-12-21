@@ -133,6 +133,7 @@
                 pkgs.just
                 pkgs.supabase-cli
                 pkgs.act
+                pkgs.lcov
               ];
 
               shellHook = ''
