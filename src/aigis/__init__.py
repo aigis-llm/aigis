@@ -15,6 +15,7 @@ supabase_key: str = os.environ.get(
 )
 openai_url = os.environ.get("OPENAI_URL", "https://api.openai.com/v1")
 openai_key = os.environ.get("OPENAI_API_KEY", "your_api_key_here")
+openai_model = os.environ.get("OPENAI_MODEL", "gpt-4o")
 app = FastAPI()
 
 origins = [os.environ.get("AIGIS_FRONTEND_URL", "http://localhost:8071")]
