@@ -55,6 +55,7 @@ async def openai_client(_request: Request) -> AsyncGenerator[AsyncOpenAI]:
 
 
 SupabaseDep = Annotated[AsyncClient, Depends(supabase_client)]
+OpenAIDep = Annotated[AsyncOpenAI, Depends(openai_client)]
 
 
 @app.get("/")
