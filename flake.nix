@@ -67,8 +67,10 @@
                 sourcePreference = "wheel";
               };
               pyprojectOverrides = pkgs.lib.composeExtensions (uv2nix-hammer-overrides.overrides_strict pkgs) (
-                _final: prev: {
-
+                final: prev: {
+                  hatchling = prev.hatchling.overrideAttrs (attrs: {
+                    propagatedBuildInputs = attrs.propagatedBuildInputs or [ ] ++ [ final.editables ];
+                  });
                 }
               );
               editableOverlay = workspace.mkEditablePyprojectOverlay {
