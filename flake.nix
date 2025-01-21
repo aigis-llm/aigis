@@ -107,6 +107,7 @@
                 pkgs.deno
                 pkgs.just
                 pkgs.supabase-cli
+                pkgs.act
               ];
 
               shellHook = ''
