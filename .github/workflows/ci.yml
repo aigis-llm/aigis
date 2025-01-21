@@ -21,6 +21,14 @@ jobs:
       - name: Run Tests
         run: just test
 
+      - name: Upload coverage report to codecov.io
+        uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: true
+          files: ./merged.lcov
+          disable_search: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+
   Lint:
     runs-on: ubuntu-latest
     steps:

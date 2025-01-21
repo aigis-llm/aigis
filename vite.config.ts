@@ -11,6 +11,11 @@ export default defineConfig({
 		setupFiles: ["./vitest-setup.ts"],
 		environment: "happy-dom",
 		watch: false,
+		coverage: {
+			provider: "istanbul", // v8 does not work in deno https://github.com/denoland/deno/issues/27003
+			reporter: ["text", "lcov"],
+			include: ["src/**"],
+		},
 	},
 	server: {
 		watch: {
