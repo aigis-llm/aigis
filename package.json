@@ -17,6 +17,7 @@
 		"@types/eslint": "^9.6.1",
 		"@unocss/extractor-svelte": "^0.64.1",
 		"@unocss/runtime": "^0.64.1",
+		"@vitest/coverage-istanbul": "^3.0.3",
 		"concurrently": "^9.1.0",
 		"css-tree": "^3.0.1",
 		"eslint": "9.15.0",
