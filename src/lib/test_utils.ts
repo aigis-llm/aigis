@@ -45,3 +45,10 @@ export async function render<
 
 	return result
 }
+
+export function pixel7() {
+	//@ts-expect-error happyDOM is only in tests
+	window.happyDOM.setInnerWidth(412)
+	//@ts-expect-error same as above
+	window.happyDOM.setInnerHeight(915)
+}
