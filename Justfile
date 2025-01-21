@@ -18,8 +18,8 @@ preview:
 	deno run -A -- npm:concurrently --kill-others "uvicorn aigis:app --port 8070 --host 0.0.0.0" "bunx --bun vite preview --port 8071 --host 0.0.0.0"
 
 test:
-	# TODO: Test our frontend
 	pytest
+	deno run -A -- npm:vitest run
 
 lint:
 	deno run -A -- npm:prettier --check .
