@@ -103,7 +103,8 @@
                 pkgs.nixfmt-rfc-style
                 virtualenv
                 pkgs.uv
-                pkgs.bun
+                #pkgs.bun
+                pkgs.deno
                 pkgs.just
                 pkgs.supabase-cli
               ];

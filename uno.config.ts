@@ -51,7 +51,11 @@ export default defineConfig({
 	],
 	presets: [
 		presetUno(),
-		presetIcons(),
+		presetIcons({
+			collections: {
+				tabler: () => import("@iconify-json/tabler/icons.json").then((i) => i.default),
+			},
+		}),
 		presetWebFonts({
 			provider: "none",
 			fonts: {
