@@ -35,3 +35,6 @@ coverage/
 .coverage
 coverage.lcov
 merged.lcov
+
+# JUnit XML
+*.junit.xml

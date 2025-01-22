@@ -18,7 +18,7 @@ preview:
 	deno run -A -- npm:concurrently --kill-others "uvicorn aigis:app --port 8070 --host 0.0.0.0" "bunx --bun vite preview --port 8071 --host 0.0.0.0"
 
 test:
-	pytest --cov=src/aigis/ --cov-report lcov --cov-report term-missing src/
+	pytest --cov=src/aigis/ --cov-report lcov --cov-report term-missing --junitxml=backend.junit.xml -o junit_family=legacy src/
 	deno run -A -- npm:vitest run --coverage
 
 lint:

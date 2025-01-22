@@ -11,6 +11,8 @@ export default defineConfig({
 		setupFiles: ["./vitest-setup.ts"],
 		environment: "happy-dom",
 		watch: false,
+		reporters: ["junit"],
+		outputFile: "frontend.junit.xml",
 		coverage: {
 			provider: "istanbul", // v8 does not work in deno https://github.com/denoland/deno/issues/27003
 			reporter: ["text", "lcov"],
