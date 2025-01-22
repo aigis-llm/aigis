@@ -21,12 +21,22 @@ jobs:
       - name: Run Tests
         run: just test
 
-      - name: Upload coverage report to codecov.io
+      - name: Upload backend coverage report to codecov.io
         uses: codecov/codecov-action@v5
         with:
           fail_ci_if_error: true
-          files: ./merged.lcov
+          files: ./coverage.lcov
           disable_search: true
+          flags: backend
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload frontend coverage report to codecov.io
+        uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: true
+          files: ./coverage/lcov.info
+          disable_search: true
+          flags: frontend
           token: ${{ secrets.CODECOV_TOKEN }}
 
   Lint:

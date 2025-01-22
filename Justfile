@@ -20,7 +20,6 @@ preview:
 test:
 	pytest --cov=src/aigis/ --cov-report lcov --cov-report term-missing src/
 	deno run -A -- npm:vitest run --coverage
-	lcov -a coverage.lcov -a coverage/lcov.info --ignore-errors inconsistent > merged.lcov
 
 lint:
 	deno run -A -- npm:prettier --check .
