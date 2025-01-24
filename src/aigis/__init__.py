@@ -1,10 +1,12 @@
 import os
 from collections.abc import AsyncGenerator
+from contextlib import asynccontextmanager
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from openai import AsyncOpenAI
+from psycopg import AsyncConnection
 
 from supabase import AsyncClient, AsyncClientOptions, create_async_client
 
@@ -16,6 +18,9 @@ supabase_key: str = os.environ.get(
 openai_url = os.environ.get("OPENAI_URL", "https://api.openai.com/v1")
 openai_key = os.environ.get("OPENAI_API_KEY", "your_api_key_here")
 openai_model = os.environ.get("OPENAI_MODEL", "gpt-4o")
+postgres_url = os.environ.get(
+	"POSTGRES_URL", "postgresql://postgres:postgres@127.0.0.1:8067/postgres"
+)
 app = FastAPI()
 
 origins = [os.environ.get("AIGIS_FRONTEND_URL", "http://localhost:8071")]
@@ -55,8 +60,18 @@ async def openai_client(_request: Request) -> AsyncGenerator[AsyncOpenAI]:
 		pass
 
 
+@asynccontextmanager
+async def postgres_client(_request: Request) -> AsyncGenerator[AsyncConnection]:
+	conn = await AsyncConnection.connect(postgres_url)
+	try:
+		yield conn
+	finally:
+		await conn.close()
+
+
 SupabaseDep = Annotated[AsyncClient, Depends(supabase_client)]
 OpenAIDep = Annotated[AsyncOpenAI, Depends(openai_client)]
+PostgresDep = Annotated[AsyncConnection, Depends(postgres_client)]
 
 
 @app.get("/")
