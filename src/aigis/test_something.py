@@ -2,7 +2,8 @@ import pytest
 from httpx import ASGITransport, AsyncClient
 from psycopg import AsyncConnection
 
-from aigis import app, postgres_client
+from aigis import app
+from aigis.utils import postgres_client
 
 pytestmark = [pytest.mark.anyio, pytest.mark.parametrize("anyio_backend", ["asyncio"])]
 
