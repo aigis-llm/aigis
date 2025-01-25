@@ -5,6 +5,9 @@ from typing import Annotated
 
 from fastapi import Depends, Request
 from openai import AsyncOpenAI
+from pgvector.psycopg import (  # pyright: ignore [reportMissingTypeStubs]
+	register_vector_async,  # pyright: ignore [reportUnknownVariableType]
+)
 from psycopg import AsyncConnection
 
 from supabase import AsyncClient, AsyncClientOptions, create_async_client
@@ -59,6 +62,7 @@ async def openai_client(_request: Request) -> AsyncGenerator[AsyncOpenAI]:
 @asynccontextmanager
 async def postgres_client(_request: Request) -> AsyncGenerator[AsyncConnection]:
 	conn = await AsyncConnection.connect(postgres_url)
+	await register_vector_async(conn)
 	try:
 		yield conn
 	finally:
