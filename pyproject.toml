@@ -6,6 +6,7 @@ authors = [
     { name = "bitbloxhub", email = "45184892+bitbloxhub@users.noreply.github.com" }
 ]
 dependencies = [
+    "psycopg[binary]>=3.2.3",
     "fastapi[standard]>=0.115.5",
     "httpx>=0.27.2",
     "openai-responses>=0.11.3",
