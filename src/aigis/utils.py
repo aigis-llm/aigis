@@ -1,6 +1,5 @@
 import os
 from collections.abc import AsyncGenerator
-from contextlib import asynccontextmanager
 from typing import Annotated, LiteralString
 
 from fastapi import Depends, Request
@@ -61,7 +60,6 @@ async def openai_client(_request: Request) -> AsyncGenerator[AsyncOpenAI]:
 		pass
 
 
-@asynccontextmanager
 async def postgres_client(_request: Request) -> AsyncGenerator[AsyncConnection]:
 	conn = await AsyncConnection.connect(postgres_url)
 	await register_vector_async(conn)
