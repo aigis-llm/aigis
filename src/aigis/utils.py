@@ -3,6 +3,7 @@ from collections.abc import AsyncGenerator
 from typing import Annotated, LiteralString
 
 from fastapi import Depends, Request
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from openai import AsyncOpenAI
 from pgvector.psycopg import (  # pyright: ignore [reportMissingTypeStubs]
 	register_vector_async,  # pyright: ignore [reportUnknownVariableType]
@@ -68,9 +69,12 @@ async def postgres_client(_request: Request) -> AsyncGenerator[AsyncConnection]:
 		await conn.close()
 
 
+get_bearer_token = HTTPBearer(auto_error=False)
+
 SupabaseDep = Annotated[AsyncClient, Depends(supabase_client)]
 OpenAIDep = Annotated[AsyncOpenAI, Depends(openai_client)]
 PostgresDep = Annotated[AsyncConnection, Depends(postgres_client)]
+BearerDep = Annotated[HTTPAuthorizationCredentials, Depends(get_bearer_token)]
 
 
 def to_binary(float: float):
