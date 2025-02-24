@@ -1,10 +1,13 @@
 import os
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
-from typing import Annotated
+from typing import Annotated, LiteralString
 
 from fastapi import Depends, Request
 from openai import AsyncOpenAI
+from pgvector.psycopg import (  # pyright: ignore [reportMissingTypeStubs]
+	register_vector_async,  # pyright: ignore [reportUnknownVariableType]
+)
 from psycopg import AsyncConnection
 
 from supabase import AsyncClient, AsyncClientOptions, create_async_client
@@ -61,6 +64,7 @@ async def openai_client(_request: Request) -> AsyncGenerator[AsyncOpenAI]:
 @asynccontextmanager
 async def postgres_client(_request: Request) -> AsyncGenerator[AsyncConnection]:
 	conn = await AsyncConnection.connect(postgres_url)
+	await register_vector_async(conn)
 	try:
 		yield conn
 	finally:
@@ -77,3 +81,21 @@ def to_binary(float: float):
 		return False
 	else:
 		return True
+
+
+def get_search_op(index_type: str) -> LiteralString:
+	match index_type:
+		case "l2_ops":
+			return "<->"
+		case "ip_ops":
+			return "<#>"
+		case "cosine_ops":
+			return "<=>"
+		case "l1_ops":
+			return "<+>"
+		case "bit_hamming_ops":
+			return "<~>"
+		case "bit_jaccard_ops":
+			return "<%%>"
+		case _:
+			raise NotImplementedError(f"No operation for type {index_type}")
