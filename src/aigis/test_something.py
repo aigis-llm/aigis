@@ -1,3 +1,5 @@
+from contextlib import asynccontextmanager
+
 import pytest
 from httpx import ASGITransport, AsyncClient
 from psycopg import AsyncConnection
@@ -25,5 +27,5 @@ async def test_root(server: AsyncClient):
 
 async def test_postgres():
 	pg: AsyncConnection
-	async with postgres_client(None) as pg:  # pyright: ignore [reportArgumentType] # noqa: F841
+	async with asynccontextmanager(postgres_client)(None) as pg:  # pyright: ignore [reportArgumentType] # noqa: F841
 		pass
