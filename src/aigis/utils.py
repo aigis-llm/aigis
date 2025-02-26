@@ -1,8 +1,11 @@
+import json
 import os
 from collections.abc import AsyncGenerator
 from typing import Annotated, LiteralString
 
+import jwt
 from fastapi import Depends, Request
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from openai import AsyncOpenAI
 from pgvector.psycopg import (  # pyright: ignore [reportMissingTypeStubs]
 	register_vector_async,  # pyright: ignore [reportUnknownVariableType]
@@ -31,6 +34,9 @@ embedding_context = int(os.environ.get("EMBEDDING_CONTEXT", "8191"))
 embedding_retrieval_prompt = os.environ.get("EMBEDDING_RETRIEVAL_PROMPT", "")
 postgres_url = os.environ.get(
 	"POSTGRES_URL", "postgresql://postgres:postgres@127.0.0.1:8067/postgres"
+)
+jwt_secret = os.environ.get(
+	"SUPABASE_JWT_SECRET", "super-secret-jwt-token-with-at-least-32-characters-long"
 )
 
 
@@ -69,9 +75,12 @@ async def postgres_client(_request: Request) -> AsyncGenerator[AsyncConnection]:
 		await conn.close()
 
 
+get_bearer_token = HTTPBearer(auto_error=False)
+
 SupabaseDep = Annotated[AsyncClient, Depends(supabase_client)]
 OpenAIDep = Annotated[AsyncOpenAI, Depends(openai_client)]
 PostgresDep = Annotated[AsyncConnection, Depends(postgres_client)]
+BearerDep = Annotated[HTTPAuthorizationCredentials, Depends(get_bearer_token)]
 
 
 def to_binary(float: float):
@@ -97,3 +106,19 @@ def get_search_op(index_type: str) -> LiteralString:
 			return "<%%>"
 		case _:
 			raise NotImplementedError(f"No operation for type {index_type}")
+
+
+async def pg_impersonate(pg: AsyncConnection, auth: str):
+	claims = jwt.decode(  # pyright: ignore [reportAny, reportUnknownMemberType]
+		auth, jwt_secret, algorithms=["HS256"], audience="authenticated"
+	)
+	_ = await pg.execute(
+		"""
+	select set_config('role', 'authenticated', true),
+           set_config('request.jwt.claims', %s, true),
+           set_config('request.method', 'POST', true),
+           set_config('request.path', '/impersonation-example-request-path', true),
+           set_config('request.headers', '{"accept": "*/*"}', true);
+	""",
+		[json.dumps(claims)],
+	)
