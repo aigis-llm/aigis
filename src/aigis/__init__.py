@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from aigis.utils import SupabaseDep
+from aigis.vector_stores import router as vector_router
 
 app = FastAPI()
 
@@ -16,6 +17,8 @@ app.add_middleware(
 	allow_methods=["*"],
 	allow_headers=["*"],
 )
+
+app.include_router(vector_router)
 
 
 @app.get("/")
