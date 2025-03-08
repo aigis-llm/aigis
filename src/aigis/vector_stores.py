@@ -66,7 +66,7 @@ async def chunk_and_upload(
 		)
 	elif chunker_type == chunker_type.recursive:
 		chunker = RecursiveChunker(
-			tokenizer=AigisTokenizer(AigisEmbeddings().tokenizer),
+			tokenizer_or_token_counter=AigisTokenizer(AigisEmbeddings().tokenizer),
 			chunk_size=embedding_context,
 			rules=RecursiveRules(),
 			min_characters_per_chunk=12,
