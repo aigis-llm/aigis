@@ -8,7 +8,7 @@ import openai_responses
 import pytest
 from httpx import ASGITransport, AsyncClient
 from openai_responses import OpenAIMock
-from psycopg import AsyncConnection
+from psycopg import AsyncConnection, sql
 
 from aigis import app
 from aigis.utils import jwt_secret, pg_impersonate, postgres_client
@@ -52,6 +52,15 @@ auth = jwt.encode(  # pyright: ignore [reportUnknownMemberType]
 async def test_create_store():
 	pg: AsyncConnection
 	async with asynccontextmanager(postgres_client)(None) as pg:  # pyright: ignore [reportArgumentType]
+		_ = await pg.execute(
+			"delete from public.stores_list where name = %s;",
+			[f"{nonexistentuser1_uuid}_test"],
+		)
+		_ = await pg.execute(
+			sql.SQL("drop table if exists vector_stores.{}").format(
+				sql.Identifier(f"{nonexistentuser1_uuid}_test")
+			)
+		)
 		await pg_impersonate(pg, auth)
 		_ = await pg.execute("select public.create_store('test', 'bit', 4, 'test');")
 		await pg.commit()
@@ -62,8 +71,7 @@ async def test_create_store():
 					[f"{nonexistentuser1_uuid}_test"],
 				)
 			).fetchone()
-		) == (
-			1,
+		)[1:] == (  # pyright: ignore [reportOptionalSubscript]
 			nonexistentuser1_uuid,
 			f"{nonexistentuser1_uuid}_test",
 			"bit",
