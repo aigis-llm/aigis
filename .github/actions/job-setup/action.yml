@@ -4,17 +4,26 @@ description: Sets up direnv and nix, and installs all dependencies
 runs:
   using: "composite"
   steps:
-    - name: Install Lix
-      uses: DeterminateSystems/nix-installer-action@main
-      with:
-        source-url: https://install.lix.systems/lix/lix-installer-x86_64-linux
-        logger: pretty
-        diagnostic-endpoint: ""
+    - name: Install Nix
+      uses: nixbuild/nix-quick-install-action@v30 # WHY DO I HAVE TO USE NIX INSTEAD OF LIX
+      #uses: fabrictest/action-setup-lix@v0.15.0
+      #with:
+      #  lix-on-tmpfs: true
+      #uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
 
-    - name: Nix Magic Cache
-      uses: DeterminateSystems/magic-nix-cache-action@main
+    - name: Cache Nix Store and Deno
+      uses: nix-community/cache-nix-action@v6
       with:
-        diagnostic-endpoint: ""
+        primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock', './uv.lock', './deno.lock') }}
+        restore-prefixes-first-match: nix-${{ runner.os }}-
+        gc-max-store-size-linux: 1073741824
+        purge: true
+        purge-prefixes: nix-${{ runner.os }}-
+        purge-created: 0
+        purge-primary-key: never
+        paths: |
+          ~/.deno
+          ~/.cache/deno/
 
     - name: Install direnv
       shell: bash
