@@ -1,0 +1,28 @@
+name: Update after Renovate
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  update-deno-lockfile:
+    runs-on: ubuntu-latest
+    if: github.actor == 'renovate[bot]'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Job setup
+        uses: ./.github/actions/job-setup
+
+      - name: Update Deno Lockfile
+        run: deno install
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore(deps): update deno lockfile"
+          git push
