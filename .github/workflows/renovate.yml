@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.DENO_LOCKFILE_PAT }}
 
       - name: Job setup
         uses: ./.github/actions/job-setup
