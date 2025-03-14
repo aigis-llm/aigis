@@ -44,6 +44,7 @@ dev = [
     "basedpyright>=1.22.1",
     "pytest-cov>=6.0.0",
     "ruff>=0.8.1",
+	"sqlfluff>=3.3.1",
 ]
 
 [tool.ruff]
@@ -57,8 +58,19 @@ reportUnusedVariable = false
 reportUnusedParameter = false
 reportDuplicateImport = false
 
+[tool.sqlfluff.core]
+ignore_comment_lines = true
+sql_file_exts = ".sql"
+encoding = "utf-8"
+dialect = "postgres"
+exclude_rules = ["RF04", "RF05", "LT05"]
+
+[tool.sqlfluff.indentation]
+indent_unit = "tab"
+
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/aigis"]
+

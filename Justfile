@@ -26,6 +26,7 @@ lint:
 	deno run -A -- npm:eslint .
 	ruff check
 	basedpyright src/aigis/
+	sqlfluff lint supabase/schemas/
 
 alias fmt := format
 
@@ -34,3 +35,4 @@ format:
 	ruff check --select I --fix
 	ruff format
 	nixfmt flake.nix
+	sqlfluff format supabase/schemas/
