@@ -7,5 +7,6 @@
 	"nix": {
 		"enabled": true
 	},
+	"gitIgnoredAuthors": ["github-actions[bot]@users.noreply.github.com"],
 	"extends": ["config:recommended"]
 }
