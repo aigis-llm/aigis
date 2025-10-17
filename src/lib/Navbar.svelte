@@ -4,7 +4,9 @@
 	import { MediaQuery } from "svelte/reactivity"
 	import { createFocusTrap } from "focus-trap"
 	import { afterNavigate } from "$app/navigation"
+	import { authClient } from "$lib/auth_client"
 
+	const session = authClient.useSession()
 	const mq = new MediaQuery("(min-width: 640px)")
 	let opened = $state(true)
 	const mobile = $derived(!mq.current)
@@ -52,6 +54,18 @@
 			<li role="menuitem">
 				<a href="/">Home</a>
 			</li>
+			{#if $session.data}
+				<li role="menuitem">
+					<a href="/auth/logout">Log out</a>
+				</li>
+			{:else}
+				<li role="menuitem">
+					<a href="/auth/login">Log in</a>
+				</li>
+				<li role="menuitem">
+					<a href="/auth/signup">Sign up</a>
+				</li>
+			{/if}
 		</ul>
 	</div>
 </nav>
