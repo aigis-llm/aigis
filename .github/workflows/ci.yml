@@ -15,8 +15,17 @@ jobs:
       - name: Job setup
         uses: ./.github/actions/job-setup
 
+      - name: Disable AppArmor
+        uses: cisagov/action-disable-apparmor@eaee2143082de2487a55e0353270f8a50778894a
+
+      - name: Unrestrict userns
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Start Tilt and wait
+        run: (TILT_TEST=yes nohup tilt up &); sleep 1; tilt wait --timeout=60s --for=condition=Ready uiresource --all
+
       - name: Run Tests
-        run: just test
+        run: TILT_TEST=yes just test
 
       - name: Upload frontend coverage report to codecov.io
         uses: codecov/codecov-action@v5
