@@ -6,7 +6,7 @@
     "npm:@iconify-json/tabler@^1.2.8": "1.2.14",
     "npm:@melt-ui/pp@~0.3.2": "0.3.2_@melt-ui+svelte@0.86.2__svelte@5.19.0___acorn@8.14.0_svelte@5.19.0__acorn@8.14.0",
     "npm:@melt-ui/svelte@~0.86.2": "0.86.2_svelte@5.19.0__acorn@8.14.0",
-    "npm:@supabase/ssr@~0.5.2": "0.5.2_@supabase+supabase-js@2.47.16",
+    "npm:@supabase/ssr@0.7": "0.7.0_@supabase+supabase-js@2.47.16",
     "npm:@supabase/supabase-js@^2.46.1": "2.47.16",
     "npm:@sveltejs/adapter-node@^5.2.9": "5.2.12_@sveltejs+kit@2.16.0__@sveltejs+vite-plugin-svelte@4.0.4___svelte@5.19.0____acorn@8.14.0___vite@5.4.11__svelte@5.19.0___acorn@8.14.0__vite@5.4.11_rollup@4.31.0_@sveltejs+vite-plugin-svelte@4.0.4__svelte@5.19.0___acorn@8.14.0__vite@5.4.11_svelte@5.19.0__acorn@8.14.0_vite@5.4.11",
     "npm:@sveltejs/kit@^2.8.4": "2.16.0_@sveltejs+vite-plugin-svelte@4.0.4__svelte@5.19.0___acorn@8.14.0__vite@5.4.11_svelte@5.19.0__acorn@8.14.0_vite@5.4.11",
@@ -616,12 +616,11 @@
         "ws"
       ]
     },
-    "@supabase/ssr@0.5.2_@supabase+supabase-js@2.47.16": {
-      "integrity": "sha512-n3plRhr2Bs8Xun1o4S3k1CDv17iH5QY9YcoEvXX3bxV1/5XSasA0mNXYycFmADIdtdE6BG9MRjP5CGIs8qxC8A==",
+    "@supabase/ssr@0.7.0_@supabase+supabase-js@2.47.16": {
+      "integrity": "sha512-G65t5EhLSJ5c8hTCcXifSL9Q/ZRXvqgXeNo+d3P56f4U1IxwTqjB64UfmfixvmMcjuxnq2yGqEWVJqUcO+AzAg==",
       "dependencies": [
         "@supabase/supabase-js",
-        "@types/cookie",
-        "cookie@0.7.2"
+        "cookie@1.0.2"
       ]
     },
     "@supabase/storage-js@2.7.1": {
@@ -1486,8 +1485,8 @@
     "cookie@0.6.0": {
       "integrity": "sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw=="
     },
-    "cookie@0.7.2": {
-      "integrity": "sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w=="
+    "cookie@1.0.2": {
+      "integrity": "sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA=="
     },
     "cross-spawn@7.0.6": {
       "integrity": "sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==",
@@ -3002,7 +3001,7 @@
         "npm:@iconify-json/tabler@^1.2.8",
         "npm:@melt-ui/pp@~0.3.2",
         "npm:@melt-ui/svelte@~0.86.2",
-        "npm:@supabase/ssr@~0.5.2",
+        "npm:@supabase/ssr@0.7",
         "npm:@supabase/supabase-js@^2.46.1",
         "npm:@sveltejs/adapter-node@^5.2.9",
         "npm:@sveltejs/kit@^2.8.4",
