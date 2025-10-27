@@ -1,6 +1,6 @@
 import { sveltekit } from "@sveltejs/kit/vite"
-import UnoCSS from "unocss/vite"
 import { svelteTesting } from "@testing-library/svelte/vite"
+import UnoCSS from "unocss/vite"
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite"
 

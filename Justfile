@@ -16,11 +16,10 @@ test:
 	deno run -A -- npm:vitest run --coverage
 
 lint:
-	deno run -A -- npm:prettier --check .
 	deno run -A -- npm:eslint .
 
 alias fmt := format
 
 format:
-	deno run -A -- npm:prettier --write .
+	deno run -A -- npm:eslint --fix .
 	nixfmt flake.nix

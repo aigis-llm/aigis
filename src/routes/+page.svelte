@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { preferences } from "$lib/stores"
 	import Select from "$lib/Select.svelte"
+	import { preferences } from "$lib/stores"
 
 	const flavors = [
 		{ value: "latte", label: "Latte" },
@@ -10,7 +10,7 @@
 	]
 
 	let flavorLabel = $state(
-		flavors.find((flavor) => flavor.value == $preferences.theme) || {
+		flavors.find(flavor => flavor.value === $preferences.theme) || {
 			value: "ERROR",
 			label: "ERROR",
 		},

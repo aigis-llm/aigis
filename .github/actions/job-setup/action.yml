@@ -2,14 +2,14 @@ name: Job setup
 description: Sets up direnv and nix, and installs all dependencies
 
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Install Nix
       uses: nixbuild/nix-quick-install-action@v30 # WHY DO I HAVE TO USE NIX INSTEAD OF LIX
-      #uses: fabrictest/action-setup-lix@v0.15.0
-      #with:
+      # uses: fabrictest/action-setup-lix@v0.15.0
+      # with:
       #  lix-on-tmpfs: true
-      #uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
+      # uses: samueldr/lix-gha-installer-action@v2025-02-26.prerelease
 
     - name: Cache Nix Store and Deno
       uses: nix-community/cache-nix-action@v6
