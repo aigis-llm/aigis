@@ -1,0 +1,9 @@
+pg_version = "18.0"
+assume_in_transaction = true
+excluded_rules = [
+	# Down migrations
+	"ban-drop-column",
+	"ban-drop-table",
+	# Not going to make 2 migrations for this.
+	"constraint-missing-not-valid",
+]

@@ -3,6 +3,7 @@
   "specifiers": {
     "npm:@antfu/eslint-config@^5.4.1": "5.4.1_eslint@9.22.0_eslint-plugin-format@1.0.2__eslint@9.22.0_eslint-plugin-svelte@2.46.1__eslint@9.22.0__svelte@5.19.0___acorn@8.14.0__postcss@8.5.1_@typescript-eslint+parser@8.46.3__eslint@9.22.0__typescript@5.7.3_typescript@5.7.3_vitest@3.0.2__vite@5.4.11_svelte@5.19.0__acorn@8.14.0_@typescript-eslint+eslint-plugin@8.46.3__@typescript-eslint+parser@8.46.3___eslint@9.22.0___typescript@5.7.3__eslint@9.22.0__typescript@5.7.3_@stylistic+eslint-plugin@5.5.0__eslint@9.22.0_vue-eslint-parser@10.2.0__eslint@9.22.0_happy-dom@20.0.10",
     "npm:@catppuccin/palette@^1.7.1": "1.7.1",
+    "npm:@electric-sql/client@^1.0.14": "1.0.14",
     "npm:@eslint/js@^9.18.0": "9.18.0",
     "npm:@iconify-json/tabler@^1.2.8": "1.2.14",
     "npm:@iconify/utils@^3.0.2": "3.0.2",
@@ -28,6 +29,7 @@
     "npm:globals@16": "16.0.0",
     "npm:happy-dom@^20.0.2": "20.0.10",
     "npm:inter-ui@^4.1.0": "4.1.0",
+    "npm:postgres@^3.4.7": "3.4.7",
     "npm:svelte-body@2": "2.0.0_svelte@5.19.0__acorn@8.14.0",
     "npm:svelte-check@^4.1.0": "4.1.4_svelte@5.19.0__acorn@8.14.0_typescript@5.7.3",
     "npm:svelte-persisted-store@0.12": "0.12.0_svelte@5.19.0__acorn@8.14.0",
@@ -265,6 +267,13 @@
     },
     "@dprint/toml@0.6.4": {
       "integrity": "sha512-bZXIUjxr0LIuHWshZr/5mtUkOrnh0NKVZEF6ACojW5z7zkJu7s9sV2mMXm8XQDqN4cJzdHYUYzUyEGdfciaLJA=="
+    },
+    "@electric-sql/client@1.0.14": {
+      "integrity": "sha512-LtPAfeMxXRiYS0hyDQ5hue2PjljUiK9stvzsVyVb4nwxWQxfOWTSF42bHTs/o5i3x1T4kAQ7mwHpxa4A+f8X7Q==",
+      "dependencies": [
+        "@microsoft/fetch-event-source",
+        "@rollup/rollup-darwin-arm64"
+      ]
     },
     "@es-joy/jsdoccomment@0.50.2": {
       "integrity": "sha512-YAdE/IJSpwbOTiaURNCKECdAwqrJuFiZhylmesBcIRawtYKnBR2wxPhoIewMg+Yu+QuYvHfJNReWpoxGBKOChA==",
@@ -666,6 +675,9 @@
         "nanoid@5.0.9",
         "svelte"
       ]
+    },
+    "@microsoft/fetch-event-source@2.0.1": {
+      "integrity": "sha512-W6CLUJ2eBMw3Rec70qrsEW0jOm/3twwJv21mrmj2yORiaVmVYGS4sSS5yUwvQc1ZlDLYGPnClVWmUUMagKNsfA=="
     },
     "@nodelib/fs.scandir@2.1.5": {
       "integrity": "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==",
@@ -3218,6 +3230,9 @@
         "source-map-js"
       ]
     },
+    "postgres@3.4.7": {
+      "integrity": "sha512-Jtc2612XINuBjIl/QTWsV5UvE8UHuNblcO3vVADSrKsrc6RqGX6lOW1cEo3CM2v0XG4Nat8nI+YM7/f26VxXLw=="
+    },
     "prelude-ls@1.2.1": {
       "integrity": "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="
     },
@@ -3924,6 +3939,7 @@
       "dependencies": [
         "npm:@antfu/eslint-config@^5.4.1",
         "npm:@catppuccin/palette@^1.7.1",
+        "npm:@electric-sql/client@^1.0.14",
         "npm:@eslint/js@^9.18.0",
         "npm:@iconify-json/tabler@^1.2.8",
         "npm:@iconify/utils@^3.0.2",
@@ -3949,6 +3965,7 @@
         "npm:globals@16",
         "npm:happy-dom@^20.0.2",
         "npm:inter-ui@^4.1.0",
+        "npm:postgres@^3.4.7",
         "npm:svelte-body@2",
         "npm:svelte-check@^4.1.0",
         "npm:svelte-persisted-store@0.12",
