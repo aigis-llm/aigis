@@ -58,12 +58,6 @@
 			<li role="menuitem">
 				<a href="/" class="!color-[--ctp-text] decoration-none p-1">Home</a>
 			</li>
-			<li role="menuitem">
-				<a href="/auth/login" class="!color-[--ctp-text] decoration-none p-1">Login</a>
-			</li>
-			<li role="menuitem">
-				<a href="/auth/signup" class="!color-[--ctp-text] decoration-none p-1">Sign up</a>
-			</li>
 		</ul>
 	</div>
 </nav>

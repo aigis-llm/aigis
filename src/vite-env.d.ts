@@ -3,8 +3,6 @@ import "@testing-library/jest-dom/vitest"
 
 interface ImportMetaEnv {
 	readonly AIGIS_FRONTEND_URL: string
-	readonly AIGIS_SUPABASE_URL: string
-	readonly AIGIS_SUPABSE_KEY: string
 }
 
 interface ImportMeta {
