@@ -55,3 +55,12 @@ def "main migration-from-schema" [ migration_name: string ] {
 
 	$"-- +goose Up\n($diff_up | diff_to_goose)\n\n-- +goose Down\n($diff_down | diff_to_goose)" | save -f $migration_path
 }
+
+# Generate the drizzle schema from the current database
+def "main drizzle-generate" [] {
+	cd $env.FILE_PWD
+	cd ..
+	deno run -A npm:drizzle-kit pull
+	rm -rf src/lib/drizzle/*.sql src/lib/drizzle/meta
+	deno run -A src/lib/drizzle/generate_zod.ts
+}
