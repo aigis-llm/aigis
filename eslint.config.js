@@ -1,33 +1,73 @@
-import js from "@eslint/js"
-import ts from "typescript-eslint"
-import svelte from "eslint-plugin-svelte"
-import prettier from "eslint-config-prettier"
-import globals from "globals"
+import antfu from "@antfu/eslint-config"
+import { mergeProcessors } from "eslint-merge-processors"
+import eslint_plugin_svelte from "eslint-plugin-svelte"
+import svelte_css_processor from "./svelte-css-processor.eslint.ts"
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
-export default [
-	js.configs.recommended,
-	...ts.configs.recommended,
-	...svelte.configs["flat/recommended"],
-	prettier,
-	...svelte.configs["flat/prettier"],
-	{
-		languageOptions: {
-			globals: {
-				...globals.browser,
-				...globals.node,
-			},
+export default antfu({
+	stylistic: {
+		indent: "tab",
+		quotes: "double",
+		overrides: {
+			"style/brace-style": ["error", "1tbs", { allowSingleLine: true }],
 		},
 	},
-	{
-		files: ["**/*.svelte"],
-		languageOptions: {
-			parserOptions: {
-				parser: ts.parser,
-			},
+
+	test: {
+		overrides: {
+			"test/consistent-test-it": ["error", { fn: "test", withinDescribe: "test" }],
+			"test/prefer-lowercase-title": ["error", { ignore: ["describe", "test"] }],
 		},
 	},
-	{
-		ignores: ["build/", ".svelte-kit/", "dist/", "vendor-node/", "coverage/"],
+
+	imports: {
+		overrides: {
+			"perfectionist/sort-imports": [
+				"error",
+				{
+					newlinesBetween: "ignore",
+					groups: [
+						"type",
+						["parent-type", "sibling-type", "index-type", "internal-type"],
+
+						"builtin",
+						"svelte",
+						"external",
+						"sveltekit",
+						"internal",
+						["parent", "sibling", "index"],
+						"side-effect",
+						"object",
+						"unknown",
+					],
+					customGroups: [
+						{
+							groupName: "svelte",
+							elementNamePattern: "^svelte.*",
+						},
+						{
+							groupName: "sveltekit",
+							elementNamePattern: ["\\$app/.+", "\\$env/.+", "\\$lib/.+", "\\$lib"],
+						},
+					],
+				},
+			],
+		},
 	},
-]
+
+	typescript: true,
+	svelte: true,
+	formatters: {
+		css: true,
+	},
+	toml: {
+		overrides: {
+			"toml/indent": ["error", "tab"],
+		},
+	},
+}, {
+	files: ["**/*.svelte"],
+	processor: mergeProcessors([
+		eslint_plugin_svelte.processors[".svelte"],
+		svelte_css_processor(),
+	]),
+})

@@ -1,14 +1,14 @@
-import {
-	defineConfig,
-	presetUno,
-	presetIcons,
-	presetWebFonts,
-	presetTypography,
-	transformerDirectives,
-} from "unocss"
+import { flavorEntries } from "@catppuccin/palette"
 import extractorSvelte from "@unocss/extractor-svelte"
 import * as cssTree from "css-tree"
-import { flavorEntries } from "@catppuccin/palette"
+import {
+	defineConfig,
+	presetIcons,
+	presetTypography,
+	presetUno,
+	presetWebFonts,
+	transformerDirectives,
+} from "unocss"
 
 export default defineConfig({
 	extractors: [extractorSvelte()],
@@ -55,7 +55,7 @@ export default defineConfig({
 			collections: {
 				tabler: () =>
 					import("@iconify-json/tabler/icons.json", { with: { type: "json" } }).then(
-						(i) => i.default,
+						i => i.default,
 					),
 			},
 		}),

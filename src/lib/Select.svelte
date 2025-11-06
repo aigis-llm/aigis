@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { createSelect, melt } from "@melt-ui/svelte"
 	import type { Snippet } from "svelte"
+
+	import { createSelect, melt } from "@melt-ui/svelte"
 
 	let {
 		children,
@@ -14,8 +15,8 @@
 		select_option_class = $bindable(""),
 	}: {
 		children: Snippet
-		options: Array<{ value: string; label: string }>
-		selected: { value: string; label: string }
+		options: Array<{ value: string, label: string }>
+		selected: { value: string, label: string }
 		class?: string
 		label_class?: string
 		button_label_class?: string

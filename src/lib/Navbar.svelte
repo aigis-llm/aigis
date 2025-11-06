@@ -1,13 +1,15 @@
 <script lang="ts">
-	import { browser } from "$app/environment"
-	import { onMount } from "svelte"
-	import { createFocusTrap, type FocusTarget, type FocusTrap } from "focus-trap"
-	import { afterNavigate } from "$app/navigation"
-	import { MediaQuery } from "svelte/reactivity"
+	import type { FocusTarget, FocusTrap } from "focus-trap"
 
-	let mq = new MediaQuery("(min-width: 640px)")
+	import { onMount } from "svelte"
+	import { MediaQuery } from "svelte/reactivity"
+	import { createFocusTrap } from "focus-trap"
+	import { browser } from "$app/environment"
+	import { afterNavigate } from "$app/navigation"
+
+	const mq = new MediaQuery("(min-width: 640px)")
 	let opened = $state(true)
-	let mobile = $derived(!mq.current)
+	const mobile = $derived(!mq.current)
 	let ft: FocusTrap
 
 	onMount(() => {
@@ -34,10 +36,10 @@
 	})
 </script>
 
-<nav class="bg-[--ctp-surface0] w-full flex flex-col h-auto {browser ? '!h-32px' : ''}">
+<nav class="bg-[--ctp-surface0] w-full flex flex-col h-auto {browser ? "!h-32px" : ""}">
 	<div class="flex flex-row items-center sm:hidden sm:border-none sm:color-transparent">
 		<button
-			class="i-tabler:menu-2 !w-32px !h-32px flex-grow-0 flex-shrink-0 {opened ? 'i-tabler:x' : ''}"
+			class="i-tabler:menu-2 !w-32px !h-32px flex-grow-0 flex-shrink-0 {opened ? "i-tabler:x" : ""}"
 			onclick={toggleOpened}
 			aria-expanded={opened}
 			aria-controls="menu"
