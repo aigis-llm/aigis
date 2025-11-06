@@ -24,8 +24,8 @@
 <p>
 	Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 </p>
-<div class="px-3">
-	<Select options={flavors} bind:selected={flavorLabel} class="w-30">Flavor:</Select>
+<div class="flavor-select-container">
+	<Select options={flavors} bind:selected={flavorLabel} --width="7.5rem">Flavor:</Select>
 </div>
 <p>Illegal</p>
 <p>3.14</p>
@@ -34,8 +34,18 @@
 	1.00; 9.44, −0.13<br />
 	0:00. 1.13; ~7.12
 </p>
-<code class="font-mono color-[--ctp-rosewater]">
+<code class="font-mono">
 	0.45, 0.91. +0.08<br />
 	1.00; 9.44, −0.13<br />
 	0:00. 1.13; ~7.12
 </code>
+
+<style>
+	.flavor-select-container {
+		padding-left: 0.75rem;
+		padding-right: 0.75rem;
+	}
+	code {
+		color: var(--ctp-rosewater);
+	}
+</style>

@@ -8,7 +8,6 @@
 		// Frontend
 		"oven.bun-vscode",
 		"svelte.svelte-vscode",
-		"dbaeumer.vscode-eslint",
-		"antfu.unocss"
+		"dbaeumer.vscode-eslint"
 	]
 }

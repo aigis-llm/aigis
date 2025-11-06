@@ -10,6 +10,9 @@ const config = {
 	kit: {
 		adapter: adapter(),
 	},
+	compilerOptions: {
+		css: "injected",
+	},
 }
 
 export default config

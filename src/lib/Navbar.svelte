@@ -1,10 +1,8 @@
 <script lang="ts">
 	import type { FocusTarget, FocusTrap } from "focus-trap"
-
 	import { onMount } from "svelte"
 	import { MediaQuery } from "svelte/reactivity"
 	import { createFocusTrap } from "focus-trap"
-	import { browser } from "$app/environment"
 	import { afterNavigate } from "$app/navigation"
 
 	const mq = new MediaQuery("(min-width: 640px)")
@@ -36,10 +34,10 @@
 	})
 </script>
 
-<nav class="bg-[--ctp-surface0] w-full flex flex-col h-auto {browser ? "!h-32px" : ""}">
-	<div class="flex flex-row items-center sm:hidden sm:border-none sm:color-transparent">
+<nav>
+	<div class="hamburger">
 		<button
-			class="i-tabler:menu-2 !w-32px !h-32px flex-grow-0 flex-shrink-0 {opened ? "i-tabler:x" : ""}"
+			class="i-tabler:menu-2 {opened ? "i-tabler:x" : ""}"
 			onclick={toggleOpened}
 			aria-expanded={opened}
 			aria-controls="menu"
@@ -47,19 +45,91 @@
 		>
 			Hamburger
 		</button>
-		<a
-			href="/"
-			class="absolute inset-0 w-10 h-32px py-1 mx-auto !color-[--ctp-text] decoration-none">Aigis</a
-		>
+		<a href="/">Aigis</a>
 	</div>
-	<div
-		class="z-10 bg-[--ctp-surface1] sm:bg-transparent justify-center content-center py-1 px-2 flex flex-col sm:flex-row sm:row-auto col-auto !sm:block focus:outline-none w-auto"
-		class:!hidden={!opened}
-	>
-		<ul class="list-none px-0 flex flex-col sm:flex-row" id="menu" role="menu">
+	<div class="menu-div" data-hidden={!opened}>
+		<ul id="menu" role="menu">
 			<li role="menuitem">
-				<a href="/" class="!color-[--ctp-text] decoration-none p-1">Home</a>
+				<a href="/">Home</a>
 			</li>
 		</ul>
 	</div>
 </nav>
+
+<style>
+	nav {
+		background-color: var(--ctp-surface0);
+		height: auto;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		.hamburger {
+			flex-direction: row;
+			align-items: center;
+			@media (min-width: 640px) {
+				display: none;
+				border-style: none;
+				color: transparent;
+			}
+			button {
+				height: 32px !important;
+				width: 32px !important;
+				flex-shrink: 0;
+				flex-grow: 0;
+			}
+			a {
+				position: absolute;
+				inset: 0;
+				margin-left: auto;
+				margin-right: auto;
+				height: 32px;
+				width: 2.5rem;
+				padding-top: 0.25rem;
+				padding-bottom: 0.25rem;
+				color: var(--ctp-text);
+				text-decoration: none;
+			}
+		}
+		.menu-div {
+			z-index: 10;
+			grid-column: auto;
+			width: auto;
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			justify-content: center;
+			background-color: var(--ctp-surface1);
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+			padding-top: 0.25rem;
+			padding-bottom: 0.25rem;
+			&:focus {
+				outline: 2px solid transparent;
+				outline-offset: 2px;
+			}
+			&[data-hidden="true"] {
+				display: none;
+			}
+			@media (min-width: 640px) {
+				grid-row: auto;
+				display: block !important;
+				flex-direction: row;
+				background-color: transparent;
+			}
+			#menu {
+				padding-left: 0px;
+				display: flex;
+				flex-direction: column;
+				list-style-type: none;
+				@media (min-width: 640px) {
+					flex-direction: row;
+				}
+				a {
+					padding: 0.25rem;
+					color: var(--ctp-text);
+					text-decoration: none;
+				}
+			}
+		}
+	}
+</style>

@@ -1,21 +1,20 @@
+import type { Plugin } from "vite"
 import { flavorEntries } from "@catppuccin/palette"
-import extractorSvelte from "@unocss/extractor-svelte"
 import * as cssTree from "css-tree"
-import {
-	defineConfig,
-	presetIcons,
-	presetTypography,
-	presetUno,
-	presetWebFonts,
-	transformerDirectives,
-} from "unocss"
 
-export default defineConfig({
-	extractors: [extractorSvelte()],
-	transformers: [transformerDirectives()],
-	preflights: [
-		{
-			getCSS: () => {
+export default function iconifyPlugin(): Plugin {
+	const virtual_module_id = "virtual:catppuccin.css"
+	const resolved_virtual_module_id = `\0${virtual_module_id}`
+
+	return {
+		name: "catppuccin",
+		resolveId: (id) => {
+			if (id === virtual_module_id) {
+				return resolved_virtual_module_id
+			}
+		},
+		load: async (id) => {
+			if (id === resolved_virtual_module_id) {
 				const ast = cssTree.parse("") as cssTree.StyleSheet
 				for (const flavor of flavorEntries) {
 					const flavorRule: cssTree.Rule = {
@@ -46,27 +45,7 @@ export default defineConfig({
 					ast.children.push(flavorRule)
 				}
 				return cssTree.generate(ast as cssTree.CssNode)
-			},
+			}
 		},
-	],
-	presets: [
-		presetUno(),
-		presetIcons({
-			collections: {
-				tabler: () =>
-					import("@iconify-json/tabler/icons.json", { with: { type: "json" } }).then(
-						i => i.default,
-					),
-			},
-		}),
-		presetWebFonts({
-			provider: "none",
-			fonts: {
-				sans: "Inter",
-				mono: "Fira Code",
-			},
-		}),
-		presetTypography(),
-	],
-	safelist: ["font-sans", "!hidden"],
-})
+	}
+}
