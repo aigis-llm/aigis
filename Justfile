@@ -4,13 +4,13 @@ install:
 	deno install
 
 dev:
-	deno run -A -- npm:vite dev --port 8071 --host 0.0.0.0
+	tilt up --stream
 
 build:
 	deno run -A -- npm:vite build
 
 preview:
-	deno run -A -- npm:vite preview --port 8071 --host 0.0.0.0
+	TILT_PREVIEW=yes tilt up --stream
 
 test:
 	deno run -A -- npm:vitest run --coverage

@@ -36,6 +36,7 @@
               pkgs.nixfmt-rfc-style
               pkgs.deno
               pkgs.just
+              pkgs.tilt
               pkgs.act
               pkgs.lcov
             ];
