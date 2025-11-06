@@ -22,10 +22,6 @@
 	$effect(() => {
 		$preferences.theme = flavorLabel.value
 	})
-
-	const loadBackendData = async () => {
-		return await (await data.backend_fetch(import.meta.env.AIGIS_BACKEND_URL)).text()
-	}
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -48,6 +44,3 @@
 	0:00. 1.13; ~7.12
 </code>
 <p>{data.session?.access_token}</p>
-{#await loadBackendData() then backend_data}
-	<p>{backend_data}</p>
-{/await}

@@ -5,9 +5,6 @@
 		"mkhl.mkhl-just",
 		"nefrob.vscode-just-syntax",
 		"mkhl.direnv",
-		// Python
-		"detachhead.basedpyright",
-		"charliermarsh.ruff",
 		// Frontend
 		"oven.bun-vscode",
 		"svelte.svelte-vscode",

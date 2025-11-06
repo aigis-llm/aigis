@@ -17,15 +17,3 @@ coverage:
       default:
         target: auto
         threshold: "5%"
-flag_management:
-  default_rules:
-    statuses:
-      - type: project
-        target: auto
-        threshold: "5%"
-      - type: patch
-        target: "90%"
-        threshold: "5%"
-  individual_flags:
-    - name: frontend
-    - name: backend
