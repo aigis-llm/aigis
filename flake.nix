@@ -20,6 +20,10 @@
         "x86_64-darwin"
       ];
 
+      imports = [
+        nix/pg-schema-diff.nix
+      ];
+
       perSystem =
         {
           config,
@@ -35,8 +39,14 @@
             packages = [
               pkgs.nixfmt-rfc-style
               pkgs.deno
+              pkgs.nushell
+              pkgs.goose
+              self'.packages.pg-schema-diff
+              pkgs.squawk
+              pkgs.sqlfluff
               pkgs.just
               pkgs.tilt
+              pkgs.podman
               pkgs.act
               pkgs.lcov
             ];

@@ -17,9 +17,15 @@ test:
 
 lint:
 	deno run -A -- npm:eslint .
+	sqlfluff lint database/schema/*.sql
+	sqlfluff lint database/migrations/*.sql
+	squawk database/schema/*.sql
+	squawk database/migrations/*.sql
 
 alias fmt := format
 
 format:
 	deno run -A -- npm:eslint --fix .
-	nixfmt flake.nix
+	sqlfluff fix database/schema/*.sql
+	sqlfluff fix database/migrations/*.sql
+	nixfmt flake.nix nix/*.nix
