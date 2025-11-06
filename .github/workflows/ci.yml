@@ -15,9 +15,6 @@ jobs:
       - name: Job setup
         uses: ./.github/actions/job-setup
 
-      - name: Start Supabase
-        run: supabase start
-
       - name: Run Tests
         run: just test
 
