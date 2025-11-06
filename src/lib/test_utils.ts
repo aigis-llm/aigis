@@ -1,9 +1,7 @@
 import type { Component, SvelteComponent } from "svelte"
-
 import { render as _render } from "@testing-library/svelte"
-import initUnocssRuntime from "@unocss/runtime"
 import resetCss from "$lib/reset.css" with { type: "text" }
-import unocss_config from "../../uno.config"
+import iconifyPlugin from "../../iconify-plugin.vite"
 
 export async function render<
 
@@ -14,35 +12,14 @@ export async function render<
 ) {
 	const result = _render(component, renderOptions)
 	const head = document.querySelector("head") as HTMLHeadElement
-	const html = document.querySelector("html") as HTMLHtmlElement
-	html.setAttribute("un-cloak", "a")
 
-	const style = document.createElement("style")
-	style.textContent = resetCss as string
-	head.appendChild(style)
+	const reset_style = document.createElement("style")
+	reset_style.textContent = resetCss as string
+	head.appendChild(reset_style)
 
-	initUnocssRuntime({ defaults: unocss_config })
-
-	await new Promise(_ => setTimeout(_, 10))
-
-	await new Promise((resolve) => {
-		if (html.getAttribute("un-cloak") == null) {
-			resolve(null)
-		}
-		new MutationObserver((_, observer) => {
-			if (html.getAttribute("un-cloak") == null) {
-				resolve(null)
-				observer.disconnect()
-			}
-		}).observe(html, {
-			attributes: true,
-			childList: true,
-			subtree: true,
-		})
-		setTimeout(() => {
-			resolve(null)
-		}, 500) // Should fix tests timing out
-	})
+	const iconify_style = document.createElement("style")
+	iconify_style.textContent = await (iconifyPlugin().load as (_: string) => Promise<string>)("\0virtual:iconify.css")
+	head.appendChild(iconify_style)
 
 	return result
 }

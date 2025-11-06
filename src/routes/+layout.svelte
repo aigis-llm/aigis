@@ -3,7 +3,8 @@
 	import Navbar from "$lib/Navbar.svelte"
 	import "$lib/reset.css"
 	import { preferences } from "$lib/stores"
-	import "virtual:uno.css"
+	import "virtual:catppuccin.css"
+	import "virtual:iconify.css"
 
 	const { children } = $props()
 </script>

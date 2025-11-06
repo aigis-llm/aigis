@@ -45,22 +45,22 @@
 
 <label class={label_class} use:melt={$label}>{@render children()}</label>
 <button
-	class="flex flex-row items-center rounded-md cursor-pointer border-2 border-solid border-[--ctp-surface1] color-[--ctp-text] bg-[--ctp-surface0] {className}"
+	class={className}
 	use:melt={$trigger}
 >
-	<div class="flex-1 text-start {button_label_class}">{$selectedLabel}</div>
+	<div class="button-label {button_label_class}">{$selectedLabel}</div>
 	<div
-		class="i-tabler:chevron-down flex-initial w-1em h-1em inline-block {button_icon_class}"
+		class="i-tabler:chevron-down button-icon {button_icon_class}"
 	></div>
 </button>
 {#if $open}
 	<div
-		class="z-10 flex max-h-[300px] flex-col overflow-y-auto rounded-lg bg-[--ctp-surface0] p-1 {select_div_class}"
+		class="select {select_div_class}"
 		use:melt={$menu}
 	>
 		{#each options as item}
 			<div
-				class="rounded-lg p-1 data-[highlighted]:bg-[--ctp-surface1] !aria-selected:bg-[--ctp-surface2] cursor-pointer {select_option_class}"
+				class="select-option {select_option_class}"
 				use:melt={$option(item)}
 			>
 				{item.label}
@@ -68,3 +68,50 @@
 		{/each}
 	</div>
 {/if}
+
+<style>
+	button {
+		display: flex;
+		flex-direction: row;
+		cursor: pointer;
+		align-items: center;
+		border-width: 2px;
+		border-color: var(--ctp-surface1);
+		border-radius: 0.375rem;
+		border-style: solid;
+		background-color: var(--ctp-surface0);
+		color: var(--ctp-text);
+		width: var(--width, auto);
+		.button-label {
+			flex: 1 1 0%;
+			text-align: start;
+		}
+		.button-icon {
+			display: inline-block;
+			height: 1em;
+			width: 1em;
+			flex: 0 1 auto;
+		}
+	}
+	.select {
+		z-index: 10;
+		max-height: 300px;
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+		border-radius: 0.5rem;
+		background-color: var(--ctp-surface0);
+		padding: 0.25rem;
+		.select-option {
+			cursor: pointer;
+			border-radius: 0.5rem;
+			padding: 0.25rem;
+			&[data-highlighted] {
+				background-color: var(--ctp-surface1);
+			}
+			&[aria-selected="true"] {
+				background-color: var(--ctp-surface2);
+			}
+		}
+	}
+</style>
