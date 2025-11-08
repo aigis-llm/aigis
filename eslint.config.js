@@ -70,4 +70,10 @@ export default antfu({
 		eslint_plugin_svelte.processors[".svelte"],
 		svelte_css_processor(),
 	]),
+}, {
+	files: ["src/lib/drizzle/{relations,schema}.ts"],
+	rules: {
+		"unused-imports/no-unused-vars": ["off"],
+		"ts/no-use-before-define": ["off"],
+	},
 })
