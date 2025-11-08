@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
 		include: ["src/**/*.{test,spec}.{js,ts}"],
 		setupFiles: ["./vitest-setup.ts"],
 		globalSetup: ["./vitest-global-setup.ts"],
-		environment: "happy-dom",
+		environment: "./happy-dom-fixed.ts",
 		watch: false,
 		reporters: ["default", "junit", "hanging-process"],
 		outputFile: "frontend.junit.xml",
