@@ -1,7 +1,7 @@
 {
   "version": "4",
   "specifiers": {
-    "npm:@antfu/eslint-config@^5.4.1": "5.4.1_eslint@9.39.1_eslint-plugin-format@1.0.2__eslint@9.39.1_eslint-plugin-svelte@2.46.1__eslint@9.39.1__svelte@5.19.0___acorn@8.14.0__postcss@8.5.1_@typescript-eslint+parser@8.47.0__eslint@9.39.1__typescript@5.7.3_typescript@5.7.3_vitest@3.0.2__vite@5.4.11_svelte@5.19.0__acorn@8.14.0_@typescript-eslint+eslint-plugin@8.47.0__@typescript-eslint+parser@8.47.0___eslint@9.39.1___typescript@5.7.3__eslint@9.39.1__typescript@5.7.3_@stylistic+eslint-plugin@5.6.0__eslint@9.39.1_vue-eslint-parser@10.2.0__eslint@9.39.1_happy-dom@20.0.10",
+    "npm:@antfu/eslint-config@^5.4.1": "5.4.1_eslint@9.39.1_eslint-plugin-format@1.0.2__eslint@9.39.1_eslint-plugin-svelte@2.46.1__eslint@9.39.1__svelte@5.19.0___acorn@8.14.0__postcss@8.5.1_@typescript-eslint+parser@8.47.0__eslint@9.39.1__typescript@5.7.3_typescript@5.7.3_vitest@3.0.2__vite@5.4.11_svelte@5.19.0__acorn@8.14.0_@typescript-eslint+eslint-plugin@8.47.0__@typescript-eslint+parser@8.47.0___eslint@9.39.1___typescript@5.7.3__eslint@9.39.1__typescript@5.7.3_@stylistic+eslint-plugin@5.6.1__eslint@9.39.1_vue-eslint-parser@10.2.0__eslint@9.39.1_happy-dom@20.0.10",
     "npm:@catppuccin/palette@^1.7.1": "1.7.1",
     "npm:@electric-sql/client@^1.0.14": "1.0.14",
     "npm:@eslint/js@^9.18.0": "9.18.0",
@@ -25,6 +25,7 @@
     "npm:css-tree@^3.0.1": "3.1.0",
     "npm:drizzle-kit@~0.31.6": "0.31.6_esbuild@0.25.12",
     "npm:drizzle-orm@~0.44.7": "0.44.7_postgres@3.4.7",
+    "npm:drizzle-zod@~0.8.3": "0.8.3_drizzle-orm@0.44.7__postgres@3.4.7_zod@4.1.12_postgres@3.4.7",
     "npm:eslint-merge-processors@2": "2.0.0_eslint@9.39.1",
     "npm:eslint-plugin-format@^1.0.2": "1.0.2_eslint@9.39.1",
     "npm:eslint-plugin-svelte@^2.46.0": "2.46.1_eslint@9.39.1_svelte@5.19.0__acorn@8.14.0_postcss@8.5.1",
@@ -61,7 +62,7 @@
         "@jridgewell/trace-mapping@0.3.25"
       ]
     },
-    "@antfu/eslint-config@5.4.1_eslint@9.39.1_eslint-plugin-format@1.0.2__eslint@9.39.1_eslint-plugin-svelte@2.46.1__eslint@9.39.1__svelte@5.19.0___acorn@8.14.0__postcss@8.5.1_@typescript-eslint+parser@8.47.0__eslint@9.39.1__typescript@5.7.3_typescript@5.7.3_vitest@3.0.2__vite@5.4.11_svelte@5.19.0__acorn@8.14.0_@typescript-eslint+eslint-plugin@8.47.0__@typescript-eslint+parser@8.47.0___eslint@9.39.1___typescript@5.7.3__eslint@9.39.1__typescript@5.7.3_@stylistic+eslint-plugin@5.6.0__eslint@9.39.1_vue-eslint-parser@10.2.0__eslint@9.39.1_happy-dom@20.0.10": {
+    "@antfu/eslint-config@5.4.1_eslint@9.39.1_eslint-plugin-format@1.0.2__eslint@9.39.1_eslint-plugin-svelte@2.46.1__eslint@9.39.1__svelte@5.19.0___acorn@8.14.0__postcss@8.5.1_@typescript-eslint+parser@8.47.0__eslint@9.39.1__typescript@5.7.3_typescript@5.7.3_vitest@3.0.2__vite@5.4.11_svelte@5.19.0__acorn@8.14.0_@typescript-eslint+eslint-plugin@8.47.0__@typescript-eslint+parser@8.47.0___eslint@9.39.1___typescript@5.7.3__eslint@9.39.1__typescript@5.7.3_@stylistic+eslint-plugin@5.6.1__eslint@9.39.1_vue-eslint-parser@10.2.0__eslint@9.39.1_happy-dom@20.0.10": {
       "integrity": "sha512-x7BiNkxJRlXXs8tIvg0CgMuNo5IZVWkGLMJotCtCtzWUHW78Pmm8PvtXhvLBbTc8683GGBK616MMztWLh4RNjA==",
       "dependencies": [
         "@antfu/install-pkg",
@@ -1076,8 +1077,8 @@
     "@standard-schema/spec@1.0.0": {
       "integrity": "sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA=="
     },
-    "@stylistic/eslint-plugin@5.6.0_eslint@9.39.1": {
-      "integrity": "sha512-owEc4B8ME+O/xyZOkLVyLqPMsUgJXIM4XzCm5Vt3WvRXpyoOfYxgA+JkEiFqXPCI8+Nc2BzAT+KGAK7QleGs8Q==",
+    "@stylistic/eslint-plugin@5.6.1_eslint@9.39.1": {
+      "integrity": "sha512-JCs+MqoXfXrRPGbGmho/zGS/jMcn3ieKl/A8YImqib76C8kjgZwq5uUFzc30lJkMvcchuRn6/v8IApLxli3Jyw==",
       "dependencies": [
         "@eslint-community/eslint-utils",
         "@typescript-eslint/types",
@@ -1635,8 +1636,8 @@
     "baseline-browser-mapping@2.8.23": {
       "integrity": "sha512-616V5YX4bepJFzNyOfce5Fa8fDJMfoxzOIzDCZwaGL8MKVpFrXqfNUoIpRn9YMI5pXf/VKgzjB4htFMsFKKdiQ=="
     },
-    "baseline-browser-mapping@2.8.29": {
-      "integrity": "sha512-sXdt2elaVnhpDNRDz+1BDx1JQoJRuNk7oVlAlbGiFkLikHCAQiccexF/9e91zVi6RCgqspl04aP+6Cnl9zRLrA=="
+    "baseline-browser-mapping@2.8.30": {
+      "integrity": "sha512-aTUKW4ptQhS64+v2d6IkPzymEzzhw+G0bA1g3uBRV3+ntkH+svttKseW5IOR4Ed6NUVKqnY7qT3dKvzQ7io4AA=="
     },
     "better-auth@1.3.27": {
       "integrity": "sha512-SwiGAJ7yU6dBhNg0NdV1h5M8T5sa7/AszZVc4vBfMDrLLmvUfbt9JoJ0uRUJUEdKRAAxTyl9yA+F3+GhtAD80w==",
@@ -1701,9 +1702,9 @@
     "browserslist@4.28.0": {
       "integrity": "sha512-tbydkR/CxfMwelN0vwdP/pLkDwyAASZ+VfWm4EOwlB6SWhx1sYnWLqo8N5j0rAzPfzfRaxt0mM/4wPU/Su84RQ==",
       "dependencies": [
-        "baseline-browser-mapping@2.8.29",
-        "caniuse-lite@1.0.30001755",
-        "electron-to-chromium@1.5.256",
+        "baseline-browser-mapping@2.8.30",
+        "caniuse-lite@1.0.30001756",
+        "electron-to-chromium@1.5.259",
         "node-releases",
         "update-browserslist-db@1.1.4_browserslist@4.28.0"
       ]
@@ -1723,8 +1724,8 @@
     "caniuse-lite@1.0.30001753": {
       "integrity": "sha512-Bj5H35MD/ebaOV4iDLqPEtiliTN29qkGtEHCwawWn4cYm+bPJM2NsaP30vtZcnERClMzp52J4+aw2UNbK4o+zw=="
     },
-    "caniuse-lite@1.0.30001755": {
-      "integrity": "sha512-44V+Jm6ctPj7R52Na4TLi3Zri4dWUljJd+RDm+j8LtNCc/ihLCT+X1TzoOAkRETEWqjuLnh9581Tl80FvK7jVA=="
+    "caniuse-lite@1.0.30001756": {
+      "integrity": "sha512-4HnCNKbMLkLdhJz3TToeVWHSnfJvPaq6vu/eRP0Ahub/07n484XHhBF5AJoSGHdVrS8tKFauUQz8Bp9P7LVx7A=="
     },
     "ccount@2.0.1": {
       "integrity": "sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg=="
@@ -1942,14 +1943,21 @@
         "postgres"
       ]
     },
+    "drizzle-zod@0.8.3_drizzle-orm@0.44.7__postgres@3.4.7_zod@4.1.12_postgres@3.4.7": {
+      "integrity": "sha512-66yVOuvGhKJnTdiqj1/Xaaz9/qzOdRJADpDa68enqS6g3t0kpNkwNYjUuaeXgZfO/UWuIM9HIhSlJ6C5ZraMww==",
+      "dependencies": [
+        "drizzle-orm",
+        "zod"
+      ]
+    },
     "eastasianwidth@0.2.0": {
       "integrity": "sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA=="
     },
     "electron-to-chromium@1.5.244": {
       "integrity": "sha512-OszpBN7xZX4vWMPJwB9illkN/znA8M36GQqQxi6MNy9axWxhOfJyZZJtSLQCpEFLHP2xK33BiWx9aIuIEXVCcw=="
     },
-    "electron-to-chromium@1.5.256": {
-      "integrity": "sha512-uqYq1IQhpXXLX+HgiXdyOZml7spy4xfy42yPxcCCRjswp0fYM2X+JwCON07lqnpLEGVCj739B7Yr+FngmHBMEQ=="
+    "electron-to-chromium@1.5.259": {
+      "integrity": "sha512-I+oLXgpEJzD6Cwuwt1gYjxsDmu/S/Kd41mmLA3O+/uH2pFRO/DvOjUyGozL8j3KeLV6WyZ7ssPwELMsXCcsJAQ=="
     },
     "emoji-regex@8.0.0": {
       "integrity": "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A=="
@@ -2319,7 +2327,7 @@
         "eslint"
       ]
     },
-    "eslint-plugin-vue@10.5.1_@stylistic+eslint-plugin@5.6.0__eslint@9.39.1_@typescript-eslint+parser@8.47.0__eslint@9.39.1__typescript@5.7.3_eslint@9.39.1_vue-eslint-parser@10.2.0__eslint@9.39.1_typescript@5.7.3": {
+    "eslint-plugin-vue@10.5.1_@stylistic+eslint-plugin@5.6.1__eslint@9.39.1_@typescript-eslint+parser@8.47.0__eslint@9.39.1__typescript@5.7.3_eslint@9.39.1_vue-eslint-parser@10.2.0__eslint@9.39.1_typescript@5.7.3": {
       "integrity": "sha512-SbR9ZBUFKgvWAbq3RrdCtWaW0IKm6wwUiApxf3BVTNfqUIo4IQQmreMg2iHFJJ6C/0wss3LXURBJ1OwS/MhFcQ==",
       "dependencies": [
         "@eslint-community/eslint-utils",
@@ -4445,6 +4453,7 @@
         "npm:css-tree@^3.0.1",
         "npm:drizzle-kit@~0.31.6",
         "npm:drizzle-orm@~0.44.7",
+        "npm:drizzle-zod@~0.8.3",
         "npm:eslint-merge-processors@2",
         "npm:eslint-plugin-format@^1.0.2",
         "npm:eslint-plugin-svelte@^2.46.0",
