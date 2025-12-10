@@ -1,3 +1,4 @@
+import ViteYaml from "@modyfi/vite-plugin-yaml"
 import { sveltekit } from "@sveltejs/kit/vite"
 import { svelteTesting } from "@testing-library/svelte/vite"
 /// <reference types="vitest/config" />
@@ -8,7 +9,7 @@ import iconify from "./iconify-plugin.vite"
 const test_postgres_url = "postgresql://postgres:secret-dev-password@localhost:8072/postgres_test"
 
 export default defineConfig(({ mode }) => ({
-	plugins: [catppuccin(), iconify(), sveltekit(), svelteTesting()],
+	plugins: [catppuccin(), iconify(), ViteYaml(), sveltekit(), svelteTesting()],
 	resolve: {
 		conditions: mode === "test" ? ["browser"] : [],
 	},

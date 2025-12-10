@@ -3,6 +3,9 @@
 	"compilerOptions": {
 		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
+		"types": [
+			"@modyfi/vite-plugin-yaml/modules"
+		],
 		"allowJs": true,
 		"checkJs": true,
 		"strict": true,

@@ -29,3 +29,6 @@ format:
 	sqlfluff fix database/schema/*.sql
 	sqlfluff fix database/migrations/*.sql
 	nixfmt flake.nix nix/*.nix
+
+gen_orpc_contract:
+	deno run -A npm:vite-node src/lib/api/gen_orpc_contract.ts

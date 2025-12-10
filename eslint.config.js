@@ -64,6 +64,10 @@ export default antfu({
 			"toml/indent": ["error", "tab"],
 		},
 	},
+
+	ignores: [
+		"src/lib/api/orpc-contract.json",
+	],
 }, {
 	files: ["**/*.svelte"],
 	processor: mergeProcessors([
