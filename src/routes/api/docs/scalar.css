@@ -1,0 +1,54 @@
+@import "$lib/reset.css";
+
+:root {
+	--scalar-font:
+		Fira Code, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+	--scalar-font-code: var(--scalar-font);
+	font-feature-settings: "calt" 1;
+}
+
+.light-mode,
+.dark-mode {
+	--scalar-color-1: var(--ctp-text);
+	--scalar-color-2: var(--ctp-subtext1);
+	--scalar-color-3: var(--ctp-subtext0);
+	--scalar-color-accent: var(--ctp-accent);
+	--scalar-background-1: var(--ctp-base);
+	--scalar-background-2: var(--ctp-mantle);
+	--scalar-background-3: var(--ctp-crust);
+	--scalar-background-accent: var(--ctp-mauve);
+	--scalar-border-color: var(--ctp-surface0);
+	--scalar-color-green: var(--ctp-green);
+	--scalar-color-red: var(--ctp-red);
+	--scalar-color-yellow: var(--ctp-yellow);
+	--scalar-color-blue: var(--ctp-blue);
+	--scalar-color-orange: var(--ctp-peach);
+	--scalar-color-purple: var(--ctp-lavender);
+	--scalar-selection-1: hsla(var(--ctp-mauve), 0.3);
+
+	background-color: var(--ctp-base);
+
+	.sidebar {
+		--scalar-sidebar-background-1: var(--ctp-mantle);
+		--scalar-sidebar-item-hover-background: var(--ctp-surface0);
+		--scalar-sidebar-item-active-background: hsla(var(--ctp-mauve), 0.1);
+		--scalar-sidebar-color-active: var(--ctp-mauve);
+	}
+
+	.scalar-address-bar * > .scalar-button,
+	.show-api-client-button {
+		background-color: var(--ctp-mauve);
+		color: var(--ctp-base);
+		.text-c-1 {
+			color: var(--ctp-base);
+		}
+	}
+
+	.scalar-app .brightness-lifted {
+		filter: none;
+	}
+
+	#headlessui-disclosure-button-v-10 {
+		color: var(--ctp-text);
+	}
+}
