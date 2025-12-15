@@ -5,7 +5,7 @@ runs:
   using: composite
   steps:
     - name: Install Nix
-      uses: nixbuild/nix-quick-install-action@v30 # WHY DO I HAVE TO USE NIX INSTEAD OF LIX
+      uses: nixbuild/nix-quick-install-action@v34 # WHY DO I HAVE TO USE NIX INSTEAD OF LIX
       # uses: fabrictest/action-setup-lix@v0.15.0
       # with:
       #  lix-on-tmpfs: true
