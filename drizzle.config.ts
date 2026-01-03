@@ -7,4 +7,7 @@ export default defineConfig({
 		url: process.env.AIGIS_POSTGRES_URL!,
 	},
 	out: "./src/lib/drizzle",
+	introspect: {
+		casing: "preserve",
+	},
 })

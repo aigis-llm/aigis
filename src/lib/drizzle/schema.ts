@@ -1,35 +1,17 @@
 import { sql } from "drizzle-orm"
 import { bigint, boolean, check, foreignKey, integer, pgTable, text, timestamp, unique } from "drizzle-orm/pg-core"
 
-export const gooseDbVersion = pgTable("goose_db_version", {
+export const goose_db_version = pgTable("goose_db_version", {
 	id: integer().primaryKey().generatedByDefaultAsIdentity({ name: "goose_db_version_id_seq", startWith: 1, increment: 1, minValue: 1, maxValue: 2147483647, cache: 1 }),
 	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
-	versionId: bigint("version_id", { mode: "number" }).notNull(),
-	isApplied: boolean("is_applied").notNull(),
+	version_id: bigint({ mode: "number" }).notNull(),
+	is_applied: boolean().notNull(),
 	tstamp: timestamp({ mode: "string" }).defaultNow().notNull(),
 }, table => [
 	check("goose_db_version_id_not_null", sql`NOT NULL id`),
 	check("goose_db_version_version_id_not_null", sql`NOT NULL version_id`),
 	check("goose_db_version_is_applied_not_null", sql`NOT NULL is_applied`),
 	check("goose_db_version_tstamp_not_null", sql`NOT NULL tstamp`),
-])
-
-export const user = pgTable("user", {
-	createdAt: timestamp({ withTimezone: true, mode: "string" }).default(sql`CURRENT_TIMESTAMP`).notNull(),
-	updatedAt: timestamp({ withTimezone: true, mode: "string" }).default(sql`CURRENT_TIMESTAMP`).notNull(),
-	emailVerified: boolean().notNull(),
-	id: text().primaryKey().notNull(),
-	name: text().notNull(),
-	email: text().notNull(),
-	image: text(),
-}, table => [
-	unique("user_email_key").on(table.email),
-	check("user_createdAt_not_null", sql`NOT NULL "createdAt"`),
-	check("user_updatedAt_not_null", sql`NOT NULL "updatedAt"`),
-	check("user_emailVerified_not_null", sql`NOT NULL "emailVerified"`),
-	check("user_id_not_null", sql`NOT NULL id`),
-	check("user_name_not_null", sql`NOT NULL name`),
-	check("user_email_not_null", sql`NOT NULL email`),
 ])
 
 export const account = pgTable("account", {
@@ -98,4 +80,22 @@ export const verification = pgTable("verification", {
 	check("verification_id_not_null", sql`NOT NULL id`),
 	check("verification_identifier_not_null", sql`NOT NULL identifier`),
 	check("verification_value_not_null", sql`NOT NULL value`),
+])
+
+export const user = pgTable("user", {
+	createdAt: timestamp({ withTimezone: true, mode: "string" }).default(sql`CURRENT_TIMESTAMP`).notNull(),
+	updatedAt: timestamp({ withTimezone: true, mode: "string" }).default(sql`CURRENT_TIMESTAMP`).notNull(),
+	emailVerified: boolean().notNull(),
+	id: text().primaryKey().notNull(),
+	name: text().notNull(),
+	email: text().notNull(),
+	image: text(),
+}, table => [
+	unique("user_email_key").on(table.email),
+	check("user_createdAt_not_null", sql`NOT NULL "createdAt"`),
+	check("user_updatedAt_not_null", sql`NOT NULL "updatedAt"`),
+	check("user_emailVerified_not_null", sql`NOT NULL "emailVerified"`),
+	check("user_id_not_null", sql`NOT NULL id`),
+	check("user_name_not_null", sql`NOT NULL name`),
+	check("user_email_not_null", sql`NOT NULL email`),
 ])

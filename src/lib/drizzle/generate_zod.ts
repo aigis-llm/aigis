@@ -13,13 +13,13 @@ const typeStatements: Array<string> = []
 // @ts-expect-error We can import TS extensions in Deno
 const schemas = await import("./schema.ts")
 for (const [name, _] of Object.entries(schemas)) {
-	schemaStatements.push(`export const ${name}SelectSchema = createSelectSchema(schemas.${name})`)
-	schemaStatements.push(`export const ${name}InsertSchema = createInsertSchema(schemas.${name})`)
-	schemaStatements.push(`export const ${name}UpdateSchema = createUpdateSchema(schemas.${name})`)
+	schemaStatements.push(`export const ${name}_select_schema = createSelectSchema(schemas.${name})`)
+	schemaStatements.push(`export const ${name}_insert_schema = createInsertSchema(schemas.${name})`)
+	schemaStatements.push(`export const ${name}_update_schema = createUpdateSchema(schemas.${name})`)
 	schemaStatements.push("")
-	typeStatements.push(`export type ${pascalCase(name)} = z.infer<typeof ${name}SelectSchema>`)
-	typeStatements.push(`export type ${pascalCase(name)}Insert = z.infer<typeof ${name}InsertSchema>`)
-	typeStatements.push(`export type ${pascalCase(name)}Update = z.infer<typeof ${name}UpdateSchema>`)
+	typeStatements.push(`export type ${pascalCase(name)} = z.infer<typeof ${name}_select_schema>`)
+	typeStatements.push(`export type ${pascalCase(name)}Insert = z.infer<typeof ${name}_insert_schema>`)
+	typeStatements.push(`export type ${pascalCase(name)}Update = z.infer<typeof ${name}_update_schema>`)
 	typeStatements.push("")
 }
 
