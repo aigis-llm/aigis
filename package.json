@@ -22,7 +22,7 @@
 		"zod-form-data": "^3.0.1"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "^5.4.1",
+		"@antfu/eslint-config": "^6.0.0",
 		"@iconify-json/tabler": "^1.2.8",
 		"@iconify/utils": "^3.0.2",
 		"@melt-ui/pp": "^0.3.2",
