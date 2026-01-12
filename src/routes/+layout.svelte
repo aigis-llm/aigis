@@ -10,6 +10,10 @@
 	const { data, children } = $props()
 </script>
 
+<svelte:head>
+	<meta name="darkreader-lock" />
+</svelte:head>
+
 <svelte:body use:classList={`theme-${$preferences.theme} font-sans`} />
 
 <QueryClientProvider client={data.queryClient}>
