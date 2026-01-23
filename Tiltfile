@@ -14,7 +14,7 @@ local_resource(
 	cmd="podman pull docker.io/postgres:18-alpine",
 	serve_cmd=" ".join([
 		"podman run",
-		"--rm",
+		"--rm --replace",
 		"--net aigis-dev-network",
 		"--name aigis-dev-postgres",
 		"--volume aigis-dev-postgres-data:/var/lib/postgresql/data:rw,z",
@@ -32,7 +32,7 @@ local_resource(
 	cmd="podman pull docker.io/electricsql/electric:canary",
 	serve_cmd=" ".join([
 		"podman run",
-		"--rm",
+		"--rm --replace",
 		"--net aigis-dev-network",
 		"--name aigis-dev-electric",
 		"-e DATABASE_URL=postgresql://postgres:secret-dev-password@aigis-dev-postgres:5432/{}?sslmode=disable".format(postgres_dbname),
