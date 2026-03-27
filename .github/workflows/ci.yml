@@ -16,7 +16,7 @@ jobs:
         uses: ./.github/actions/job-setup
 
       - name: Disable AppArmor
-        uses: cisagov/action-disable-apparmor@eaee2143082de2487a55e0353270f8a50778894a
+        uses: cisagov/action-disable-apparmor@226f823fd4b5c8e011cb847bb9674aa37d8fe173
 
       - name: Unrestrict userns
         run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
