@@ -24,7 +24,7 @@
     "npm:cookie@^1.0.2": "1.0.2",
     "npm:css-tree@^3.0.1": "3.1.0",
     "npm:drizzle-kit@~0.31.6": "0.31.6_esbuild@0.25.12",
-    "npm:drizzle-orm@~0.44.7": "0.44.7_postgres@3.4.7",
+    "npm:drizzle-orm@0.45": "0.45.2_postgres@3.4.7",
     "npm:eslint-merge-processors@2": "2.0.0_eslint@9.39.1",
     "npm:eslint-plugin-format@^1.0.2": "1.0.2_eslint@9.39.1",
     "npm:eslint-plugin-svelte@^2.46.0": "2.46.1_eslint@9.39.1_svelte@5.19.0__acorn@8.14.0_postcss@8.5.1",
@@ -1936,8 +1936,8 @@
         "esbuild-register"
       ]
     },
-    "drizzle-orm@0.44.7_postgres@3.4.7": {
-      "integrity": "sha512-quIpnYznjU9lHshEOAYLoZ9s3jweleHlZIAWR/jX9gAWNg/JhQ1wj0KGRf7/Zm+obRrYd9GjPVJg790QY9N5AQ==",
+    "drizzle-orm@0.45.2_postgres@3.4.7": {
+      "integrity": "sha512-kY0BSaTNYWnoDMVoyY8uxmyHjpJW1geOmBMdSSicKo9CIIWkSxMIj2rkeSR51b8KAPB7m+qysjuHme5nKP+E5Q==",
       "dependencies": [
         "postgres"
       ]
@@ -4444,7 +4444,7 @@
         "npm:cookie@^1.0.2",
         "npm:css-tree@^3.0.1",
         "npm:drizzle-kit@~0.31.6",
-        "npm:drizzle-orm@~0.44.7",
+        "npm:drizzle-orm@0.45",
         "npm:eslint-merge-processors@2",
         "npm:eslint-plugin-format@^1.0.2",
         "npm:eslint-plugin-svelte@^2.46.0",
